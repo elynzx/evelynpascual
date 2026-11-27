@@ -35,6 +35,7 @@ import { VscAzure } from "react-icons/vsc";
 interface TechIconTileProps {
   name: string;
   compact?: boolean;
+  mobileTiny?: boolean;
 }
 
 export function getOfficialIcon(
@@ -139,7 +140,11 @@ export function getOfficialIcon(
   return null;
 }
 
-export function TechIconTile({ name, compact = false }: TechIconTileProps) {
+export function TechIconTile({
+  name,
+  compact = false,
+  mobileTiny = false,
+}: TechIconTileProps) {
   const Icon = getOfficialIcon(name);
 
   if (!Icon) return null;
@@ -147,17 +152,29 @@ export function TechIconTile({ name, compact = false }: TechIconTileProps) {
   return (
     <div
       className={`group flex flex-col items-center justify-center text-center transition-all duration-200 ${
-        compact ? "py-1.5 px-1 gap-1.5" : "py-2.5 px-2 gap-2.5"
+        compact
+          ? "py-1.5 px-1 gap-1.5"
+          : mobileTiny
+            ? "py-1.5 px-1 gap-2.5 lg:py-2.5 lg:px-2 lg:gap-2.5"
+            : "py-2.5 px-2 gap-2.5"
       }`}
     >
       <Icon
         className={`${
-          compact ? "h-7 w-7" : "h-8 w-8"
+          compact
+            ? "h-6 w-6 lg:h-7 lg:w-7"
+            : mobileTiny
+              ? "h-7 w-7 sm:h-6 sm:w-6 lg:h-8 lg:w-8"
+              : "h-8 w-8"
         } text-[#71717A] group-hover:text-neon-lime group-hover:scale-110 transition-all duration-200`}
       />
       <span
         className={`${
-          compact ? "text-[10px]" : "text-xs"
+          compact
+            ? "text-[9.5px] lg:text-[10px]"
+            : mobileTiny
+              ? "text-[10px] sm:text-[10px] lg:text-xs"
+              : "text-xs"
         } font-semibold text-[var(--ink-muted)] group-hover:text-[var(--ink-black)] leading-tight transition-colors duration-200`}
       >
         {name}

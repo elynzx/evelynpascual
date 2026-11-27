@@ -64,7 +64,7 @@ export function ContactDialog({ locale, onClose }: ContactDialogProps) {
   return (
     <div
       onClick={onClose}
-      className="fixed inset-0 z-50 bg-neutral-900/20 backdrop-blur-sm flex items-start justify-end p-4 sm:p-6 lg:pr-20 lg:pt-20"
+      className="fixed inset-0 z-50 bg-neutral-900/20 backdrop-blur-sm flex items-center justify-center p-4 sm:p-6"
     >
       <div
         onClick={(e) => e.stopPropagation()}

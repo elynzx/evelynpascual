@@ -13,7 +13,7 @@ export function SectionHeader({
 }: SectionHeaderProps) {
   return (
     <div
-      className={`${marginClassName} flex flex-wrap items-end justify-between gap-4 pb-3.5 border-b border-[#E4E4E7]`}
+      className={`${marginClassName} flex flex-wrap items-end justify-between gap-4 pb-3.5 sm:border-b border-[#E4E4E7]`}
     >
       <div className="flex items-center gap-2.5">
         <span
@@ -28,7 +28,7 @@ export function SectionHeader({
       </div>
 
       {rightText ? (
-        <span className="text-[11px] font-bold uppercase tracking-[0.16em] text-[var(--ink-muted)]">
+        <span className="hidden sm:flex text-[11px] font-bold uppercase tracking-[0.16em] text-[var(--ink-muted)]">
           {rightText}
         </span>
       ) : null}
