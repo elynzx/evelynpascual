@@ -410,7 +410,7 @@ export const dictionary: Record<Locale, PortfolioCopy> = {
           year: "2026",
           category: "Java + Spring Boot + MySQL + Vanilla JS + Scrum",
           imagePath: "/images/projects/raices.webp",
-          mobileImage: "/images/projects/raices-mobile.webp",
+          mobileImage: "/images/projects/raices-mobile.png",
           wireframeBadge: "SCRUM MASTER (TEAM OF 4) + SPRING BOOT REST",
           summary:
             "Regional e-commerce platform built by a 4-developer team where I led Scrum ceremonies and Git workflows while building product views, custom cart events, and Spring Boot/MySQL endpoints.",
@@ -854,7 +854,7 @@ public record VenueBookingRequest(
           year: "2026",
           category: "Java + Spring Boot + Spring Security (JWT) + React",
           imagePath: "/images/projects/lumina.webp",
-          mobileImage: "/images/projects/lumina-mobile.webp",
+          mobileImage: "/images/projects/lumina-mobile.png",
           wireframeBadge: "JWT RBAC ('CLIENTE' / 'ADMIN') + ATOMIC DESIGN",
           summary:
             "Plataforma full-stack para reserva de locales y mobiliario de eventos con seguridad JWT por roles, filtros multicriterio, comprobantes PDF y arquitectura React en Atomic Design.",
@@ -892,7 +892,7 @@ public record VenueBookingRequest(
           year: "2026",
           category: "React + TypeScript + PostgreSQL + Spring Boot",
           imagePath: "/images/projects/pawguard.webp",
-          mobileImage: "/images/projects/pawguard-mobile.webp",
+          mobileImage: "/images/projects/pawguard-mobile.png",
           wireframeBadge: "REACT + TYPESCRIPT + SPRING BOOT + POSTGRESQL",
           summary:
             "Aplicación web que simplifica la comparación de seguros para mascotas, administración de pólizas y seguimiento veterinario con backend en Java, Spring Boot y PostgreSQL.",
@@ -968,7 +968,7 @@ public record VenueBookingRequest(
           year: "2026",
           category: "Java + Spring Boot + MySQL + Vanilla JS + Scrum",
           imagePath: "/images/projects/raices.webp",
-          mobileImage: "/images/projects/raices-mobile.webp",
+          mobileImage: "/images/projects/raices-mobile.png",
           wireframeBadge: "SCRUM MASTER (EQUIPO DE 4) + SPRING BOOT REST",
           summary:
             "Plataforma regional de e-commerce desarrollada en equipo de 4 integrantes donde lideré ceremonias Scrum y flujos Git además de construir vistas dinámicas, carrito en JS y endpoints en Spring Boot.",
@@ -1004,7 +1004,7 @@ public record VenueBookingRequest(
           year: "2026",
           category: "React + TypeScript + Tailwind CSS + Spring Boot + MySQL",
           imagePath: "/images/projects/lulu.webp",
-          mobileImage: "/images/projects/lulu-mobile.webp",
+          mobileImage: "/images/projects/lulu-mobile.png",
           wireframeBadge: "REACT + TYPESCRIPT + SPRING BOOT + MYSQL",
           summary:
             "Tienda online inspirada en una pastelería peruana real de postres sin azúcar (aptos para diabéticos) y libres de gluten hechos solo con insumos peruanos como la lúcuma, proyectada al mercado de EE. UU. con React, Spring Boot y MySQL.",
