@@ -27,7 +27,7 @@ export function AboutEditorial({ about, locale }: AboutEditorialProps) {
     >
       <CircuitBackdrop variant="trajectory" />
 
-      <div className="relative z-10 mx-auto w-full max-w-[1540px] flex-1 flex flex-col justify-between px-4 sm:px-10 lg:pl-44 lg:pr-20 xl:pl-48 xl:pr-24">
+      <div className="relative pr-17 pt-8 sm:pt-0 ml-6 sm:ml-auto z-10 mx-auto w-full max-w-[1440px] 2xl:max-w-[1540px] flex-1 flex flex-col justify-between px-11 sm:px-16 md:px-20 lg:pl-24 lg:pr-24 xl:pl-52 xl:pr-28 2xl:pl-48 2xl:pr-24">
         <SectionHeader
           index="02"
           title={locale === "en" ? "TRAJECTORY" : "TRAYECTORIA"}
@@ -35,15 +35,15 @@ export function AboutEditorial({ about, locale }: AboutEditorialProps) {
           marginClassName="mb-8"
         />
 
-        <div className="my-auto grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-0 items-center">
-          <div className="lg:col-span-4 relative flex flex-col items-start">
+        <div className="my-auto grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-0 items-center">
+          <div className="lg:col-span-4 relative flex flex-col gap-6 sm:gap-0 items-center text-center lg:items-start lg:text-left">
             <PortraitFrame
               imageSrc="/images/profile/EvelynPascualProfilePhoto.png"
               imageAlt="Evelyn Pascual"
             />
 
-            <div className="max-w-[310px]">
-              <div className="flex items-center gap-2 mb-1">
+            <div className="max-w-[310px] flex flex-col items-center lg:items-start">
+              <div className="flex items-center justify-center lg:justify-start gap-2 mb-1">
                 <span
                   aria-hidden="true"
                   style={{ boxShadow: "0 0 8px var(--neon-lime)" }}
@@ -54,32 +54,36 @@ export function AboutEditorial({ about, locale }: AboutEditorialProps) {
                 </p>
               </div>
 
-              <h2 className="font-display text-2xl sm:text-[26px] font-extrabold tracking-tight text-[#0B0C0E] leading-tight mb-3">
+              <h2 className="font-display text-xl sm:text-[26px] font-extrabold tracking-tight text-[#0B0C0E] leading-tight mb-2.5 sm:mb-3">
                 Evelyn Pascual
               </h2>
 
-              <p className="text-[13.5px] text-[#52525B] leading-relaxed pt-3 border-t border-[#E4E4E7]">
+              <p className="text-xs sm:text-[13.5px] text-[#52525B] leading-relaxed pt-3 border-t border-[#E4E4E7]">
                 {hookBio}
               </p>
             </div>
           </div>
 
-          <div className="lg:col-span-8 lg:pl-12 xl:pl-16">
-            <div className="relative pl-6 sm:pl-8 border-l border-[#E4E4E7] space-y-6">
+          <div className="lg:col-span-8 lg:pl-10 xl:pl-16 mt-6 sm:mt-0">
+            <div className="relative pl-5 sm:pl-8 border-l-2 sm:border-l border-[#E4E4E7] space-y-5 sm:space-y-6">
               {milestones.map((item) => (
                 <div
                   key={item.index}
-                  className="group relative flex flex-col sm:flex-row sm:items-start justify-between gap-2 sm:gap-8 pb-5 border-b border-[#E4E4E7]/70 last:border-b-0 last:pb-0"
+                  className="group relative flex flex-col sm:flex-row sm:items-start justify-between gap-2 sm:gap-8 pb-4 sm:pb-5 border-b border-[#E4E4E7]/70 last:border-b-0 last:pb-0"
                 >
                   <span
                     aria-hidden="true"
-                    className="absolute -left-[29px] sm:-left-[37px] top-2 h-2.5 w-2.5 rounded-full bg-[#FFFFFF] border-2 border-[#D4D4D8] group-hover:border-[var(--neon-lime)] group-hover:bg-[var(--neon-lime)] transition-colors"
+                    className="absolute -left-[25px] sm:-left-[37px] top-2 h-2.5 w-2.5 rounded-full bg-[#FFFFFF] border-2 border-[#D4D4D8] group-hover:border-[var(--neon-lime)] group-hover:bg-[var(--neon-lime)] transition-colors"
                   />
 
                   <div className="w-full max-w-[520px]">
-                    <p className="font-mono text-[10.5px] font-extrabold uppercase tracking-[0.16em] text-[var(--neon-lime)] mb-1">
+                    <p className="hidden sm:flex font-mono text-[10.5px] font-extrabold uppercase tracking-[0.16em] text-[var(--neon-lime)] mb-1">
                       {item.index} // {item.institution}
                     </p>
+                    <p className="flex sm:hidden font-mono text-[9.5px] font-extrabold uppercase tracking-[0.16em] text-[var(--neon-lime)] mb-1">
+                      {item.institution}
+                    </p>
+
 
                     <h3 className="font-display text-lg sm:text-[20px] font-extrabold tracking-tight text-[#0B0C0E] leading-snug">
                       {item.title}

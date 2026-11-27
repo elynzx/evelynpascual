@@ -41,9 +41,9 @@ export function FieldNotes({ locale }: FieldNotesProps) {
     >
       <CircuitBackdrop variant="stack" />
 
-      <div className="relative z-10 mx-auto w-full max-w-[1540px] flex-1 flex flex-col justify-between px-4 sm:px-10 lg:pl-44 lg:pr-20 xl:pl-48 xl:pr-24">
-        <div className="mb-8 flex flex-col xl:flex-row xl:items-end justify-between gap-4 border-b border-[#E4E4E7]">
-          <div className="pb-3.5 flex items-center gap-2.5 shrink-0">
+      <div className="relative pr-17 pt-8 sm:pt-0 ml-6 sm:ml-auto z-10 mx-auto w-full max-w-[1440px] 2xl:max-w-[1540px] flex-1 flex flex-col justify-between px-11 sm:px-16 md:px-20 lg:pl-24 lg:pr-24 xl:pl-52 xl:pr-28 2xl:pl-48 2xl:pr-24">
+        <div className="sm:mb-8 flex flex-col xl:flex-row xl:items-end justify-between gap-4 border-b-2 sm:border-b border-[#E4E4E7]">
+          <div className="sm:pb-3.5 flex items-center gap-2.5 shrink-0">
             <span
               aria-hidden="true"
               style={{ boxShadow: "0 0 8px var(--neon-lime)" }}
@@ -58,7 +58,7 @@ export function FieldNotes({ locale }: FieldNotesProps) {
           {posts.length > 1 ? (
             <nav
               aria-label={locale === "en" ? "Blog posts" : "Entradas del blog"}
-              className="flex flex-wrap items-center gap-x-6 gap-y-2"
+              className="flex flex-nowrap xl:flex-wrap items-center gap-x-6 gap-y-2 overflow-x-auto no-scrollbar"
             >
               {posts.map((item, idx) => {
                 const isActive = idx === selectedIndex;
@@ -96,31 +96,58 @@ export function FieldNotes({ locale }: FieldNotesProps) {
               })}
             </nav>
           ) : (
-            <span className="pb-3.5 font-mono text-[11px] font-bold uppercase tracking-[0.16em] text-[#52525B]">
+            <span className="sm:pb-3.5 font-mono text-[11px] font-bold uppercase tracking-[0.16em] text-[#52525B]">
               {post.postNumber} • {post.readTime}
             </span>
           )}
         </div>
 
-        <div className="my-auto grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-14 items-start">
-          <div className="lg:col-span-5 flex flex-col items-start">
+        <div className="my-auto pt-12 sm:pt-0 grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-12 xl:gap-14 items-start">
+          <div className="order-1 lg:col-span-5 flex flex-col items-center text-center lg:items-start lg:text-left">
             <p className="font-mono text-[11px] font-extrabold uppercase tracking-[0.18em] text-[var(--neon-lime)] mb-2.5">
               {post.category}
             </p>
 
-            <h2 className="font-display text-2xl sm:text-3xl lg:text-[34px] font-extrabold tracking-tight text-[#0B0C0E] leading-[1.15] mb-4">
+            <h2 className="font-display text-xl sm:text-3xl lg:text-[32px] xl:text-[34px] font-extrabold tracking-tight text-[#0B0C0E] leading-[1.15] mb-3.5 sm:mb-4">
               {post.title}
             </h2>
 
-            <p className="text-sm sm:text-[15px] font-medium text-[#52525B] leading-relaxed mb-7">
+            <p className="text-xs sm:text-[15px] font-medium text-[#52525B] leading-relaxed lg:mb-0">
               {post.hook}
             </p>
+          </div>
 
-            <div className="w-full flex items-center gap-5 pt-5 pb-6 border-t border-[#E4E4E7]">
+          <div className="order-2 lg:order-2 lg:col-span-7 lg:row-span-2 lg:pl-4 xl:pl-8 flex flex-col gap-5">
+            <BlogLaptopMockup
+              imageSrc={post.coverImage}
+              imageAlt={post.coverAlt}
+              badge={post.postNumber}
+            />
+
+            <div className="pt-2 px-2 space-y-3.5">
+              <blockquote className="text-left border-l-2 border-[var(--neon-lime)] pl-4 py-0.5 text-sm sm:text-[15px] font-bold text-[#0B0C0E] leading-relaxed">
+                “{post.highlightQuote}”
+              </blockquote>
+
+              <div className="pl-0 lg:pl-4 flex flex-wrap items-center justify-center lg:justify-end gap-1.5">
+                {post.tags.map((tag) => (
+                  <span
+                    key={tag}
+                    className="hidden sm:flex font-mono text-[10px] font-bold tracking-wider px-2 py-0.5 border border-[#E4E4E7] bg-[#FFFFFF] text-[#52525B]"
+                  >
+                    {tag}
+                  </span>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          <div className="order-3 lg:order-3 lg:col-span-5 flex flex-col items-center lg:items-start w-full">
+            <div className="w-full flex items-center sm:justify-start gap-7 sm:gap-5 pt-3 sm:pt-5 pb-5 sm:pb-6 border-t-2 sm:border-t border-[#E4E4E7] text-left">
               <img
                 src="/images/profile/EvelynPascual_professionalphoto.jpg"
                 alt="Evelyn Pascual"
-                className="h-24 w-24 rounded-full object-cover object-top border border-[#E4E4E7] shadow-xs shrink-0"
+                className="h-19 w-19 sm:h-20 sm:w-20 lg:h-24 lg:w-24 rounded-full object-cover object-top border border-[#E4E4E7] shadow-xs shrink-0"
               />
               <div className="min-w-0">
                 <p className="font-mono text-xs font-extrabold uppercase tracking-[0.14em] text-[#0B0C0E]">
@@ -131,7 +158,7 @@ export function FieldNotes({ locale }: FieldNotesProps) {
                     ? "Full-Stack Software Engineer"
                     : "Ingeniera de Software Full-Stack"}
                 </p>
-                <div className="mt-3.5 flex flex-wrap items-center gap-x-3.5 gap-y-1 font-mono text-[10.5px] font-bold uppercase tracking-[0.12em] text-[#52525B]">
+                <div className="mt-2.5 sm:mt-3.5 flex flex-wrap items-center gap-x-3.5 gap-y-1 font-mono text-[10px] sm:text-[10.5px] font-bold uppercase tracking-[0.12em] text-[#52525B]">
                   <span className="inline-flex items-center gap-1.5">
                     <Calendar className="h-3.5 w-3.5 text-[var(--neon-lime)]" />
                     {post.date}
@@ -147,7 +174,7 @@ export function FieldNotes({ locale }: FieldNotesProps) {
             <button
               type="button"
               onClick={() => setIsReaderOpen(true)}
-              className="group relative w-full sm:w-auto min-w-[300px] flex items-center justify-between gap-6 py-3.5 px-3 border-b-2 border-[#0B0C0E] hover:bg-[#F8F9FA] transition-colors cursor-pointer"
+              className="group relative w-full sm:w-auto sm:min-w-[280px] flex items-center justify-between gap-4 sm:gap-6 py-3 sm:py-3.5 px-2.5 sm:px-3 border-b-2 border-[#0B0C0E] hover:bg-[#F8F9FA] transition-colors cursor-pointer"
             >
               <span
                 aria-hidden="true"
@@ -166,31 +193,6 @@ export function FieldNotes({ locale }: FieldNotesProps) {
               </span>
               <ArrowRight className="h-4 w-4 text-[#0B0C0E] group-hover:translate-x-1 transition-transform" />
             </button>
-          </div>
-
-          <div className="lg:col-span-7 lg:pl-4 xl:pl-8 flex flex-col gap-5">
-            <BlogLaptopMockup
-              imageSrc={post.coverImage}
-              imageAlt={post.coverAlt}
-              badge={post.postNumber}
-            />
-
-            <div className="pt-2 px-2 space-y-3.5">
-              <blockquote className="border-l-2 border-[var(--neon-lime)] pl-4 py-0.5 text-sm sm:text-[15px] font-bold text-[#0B0C0E] leading-relaxed">
-                “{post.highlightQuote}”
-              </blockquote>
-
-              <div className="pl-4 flex flex-wrap items-center justify-end gap-1.5">
-                {post.tags.map((tag) => (
-                  <span
-                    key={tag}
-                    className="font-mono text-[10px] font-bold tracking-wider px-2 py-0.5 border border-[#E4E4E7] bg-[#FFFFFF] text-[#52525B]"
-                  >
-                    {tag}
-                  </span>
-                ))}
-              </div>
-            </div>
           </div>
         </div>
       </div>

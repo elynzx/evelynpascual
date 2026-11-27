@@ -78,7 +78,7 @@ export function ProjectSheet({ projects, locale }: ProjectSheetProps) {
       <CircuitBackdrop variant="projects" />
 
       <div
-        className={`relative z-10 mx-auto w-full max-w-[1540px] flex-1 flex flex-col justify-between px-4 sm:px-10 lg:pl-44 lg:pr-20 xl:pl-48 xl:pr-24 transition-all duration-700 ease-out ${
+        className={` ml-6 md:ml-auto pr-17 pt-8 sm:pt-0 relative z-10 mx-auto w-full max-w-[1440px] 2xl:max-w-[1540px] flex-1 flex flex-col justify-between px-11 sm:px-16 md:px-20 lg:pl-24 lg:pr-24 xl:pl-52 xl:pr-28 2xl:pl-48 2xl:pr-24 transition-all duration-700 ease-out ${
           isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
         }`}
       >
@@ -91,13 +91,17 @@ export function ProjectSheet({ projects, locale }: ProjectSheetProps) {
 
         <article
           key={currentProject.id}
-          className="my-auto grid grid-cols-1 lg:grid-cols-12 xl:grid-cols-11 gap-10 lg:gap-14 xl:gap-20 items-end animate-slide-bloom"
+          className="my-auto grid grid-cols-1 lg:grid-cols-12 xl:grid-cols-11 gap-5 lg:gap-10 xl:gap-16 2xl:gap-20 items-end animate-slide-bloom"
         >
           <div className="lg:col-span-8 xl:col-span-8">
             <DeviceStage
               project={currentProject}
               locale={locale}
               mobileImage={currentProject.mobileImage}
+              currentIndex={currentIndex}
+              total={total}
+              onPrev={() => setCurrentIndex((prev) => (prev - 1 + total) % total)}
+              onNext={() => setCurrentIndex((prev) => (prev + 1) % total)}
             />
           </div>
 

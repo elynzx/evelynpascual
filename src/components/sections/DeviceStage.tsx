@@ -1,6 +1,6 @@
 "use client";
 
-import { ChevronLeft, ChevronRight, Maximize2, X } from "lucide-react";
+import { ArrowLeft, ArrowRight, ChevronLeft, ChevronRight, Maximize2, X } from "lucide-react";
 import { useEffect, useRef, useState, type UIEvent } from "react";
 import { createPortal } from "react-dom";
 import type { Locale, ProjectItem } from "@/data/dictionary";
@@ -10,12 +10,20 @@ interface DeviceStageProps {
   project: ProjectItem;
   locale: Locale;
   mobileImage?: string;
+  currentIndex?: number;
+  total?: number;
+  onPrev?: () => void;
+  onNext?: () => void;
 }
 
 export function DeviceStage({
   project,
   locale,
   mobileImage,
+  currentIndex = 0,
+  total = 1,
+  onPrev,
+  onNext,
 }: DeviceStageProps) {
   const stageRef = useRef<HTMLDivElement | null>(null);
   const laptopViewportRef = useRef<HTMLDivElement | null>(null);
@@ -201,8 +209,8 @@ export function DeviceStage({
 
   return (
     <div ref={stageRef} className="relative w-full">
-      <div className="flex items-center justify-between mb-3.5 text-[10px] font-extrabold uppercase tracking-[0.2em]">
-        <div className="inline-flex items-center gap-2 text-[#0B0C0E]">
+      <div className="flex items-center justify-end sm:justify-between mb-3 lg:mb-3.5 text-[10px] font-extrabold uppercase tracking-[0.2em]">
+        <div className="hidden sm:inline-flex items-center gap-2 text-[#0B0C0E]">
           <span
             style={{ boxShadow: "0 0 8px var(--neon-lime)" }}
             className="h-1.5 w-1.5 rounded-full bg-[var(--neon-lime)] animate-pulse"
@@ -211,11 +219,15 @@ export function DeviceStage({
             {locale === "en" ? "PLAYING DEMO" : "DEMO EN REPRODUCCIÓN"}
           </span>
         </div>
+
+        <span className="lg:hidden font-mono text-[10px] font-bold tracking-[0.18em] text-[#71717A]">
+          <span className="text-[#0B0C0E]">0{currentIndex + 1}</span> / 0{total}
+        </span>
       </div>
 
       <div className="relative w-full flex flex-col lg:block items-center">
         <div
-          className="w-full lg:w-[82%] relative z-10 group"
+          className="hidden lg:block w-full lg:w-[82%] relative z-10 group"
           onMouseEnter={() => setIsLaptopInteracting(true)}
           onMouseLeave={() => setIsLaptopInteracting(false)}
           onWheel={handleLaptopManualScroll}
@@ -288,16 +300,48 @@ export function DeviceStage({
           </div>
         </div>
 
-        <MobileDeviceFrame
-          title={project.title}
-          imageSrc={resolvedMobileImage}
-          locale={locale}
-          hasScrolled={hasMobileScrolled}
-          imgError={mobileImgError}
-          viewportRef={mobileViewportRef}
-          onScroll={handleMobileScroll}
-          onError={() => setMobileImgError(true)}
-        />
+        <div className="w-full flex items-center justify-center gap-8 sm:gap-5 lg:block">
+          {onPrev ? (
+            <button
+              type="button"
+              onClick={onPrev}
+              aria-label={
+                locale === "en" ? "Previous project" : "Proyecto anterior"
+              }
+              className="lg:hidden group flex h-10 w-10 shrink-0 items-center justify-center bg-white border border-[#b2b2b6] text-[#5b5c5f] hover:border-[#0B0C0E] hover:bg-[#F8F9FA] shadow-xs transition-colors cursor-pointer"
+            >
+              <ArrowLeft
+                className="h-4 w-4 group-hover:text-[var(--neon-lime)] group-hover:-translate-x-0.5 transition-all"
+                strokeWidth={2}
+              />
+            </button>
+          ) : null}
+
+          <MobileDeviceFrame
+            title={project.title}
+            imageSrc={resolvedMobileImage}
+            locale={locale}
+            hasScrolled={hasMobileScrolled}
+            imgError={mobileImgError}
+            viewportRef={mobileViewportRef}
+            onScroll={handleMobileScroll}
+            onError={() => setMobileImgError(true)}
+          />
+
+          {onNext ? (
+            <button
+              type="button"
+              onClick={onNext}
+              aria-label={locale === "en" ? "Next project" : "Siguiente proyecto"}
+              className="lg:hidden group flex h-10 w-10 shrink-0 items-center justify-center bg-white border border-[#b2b2b6] text-[#5b5c5f] hover:bg-[#F8F9FA] shadow-xs transition-colors cursor-pointer"
+            >
+              <ArrowRight
+                className="h-4 w-4 group-hover:text-[var(--neon-lime)] group-hover:translate-x-0.5 transition-all"
+                strokeWidth={2}
+              />
+            </button>
+          ) : null}
+        </div>
       </div>
 
       {isLightboxOpen && typeof document !== "undefined"

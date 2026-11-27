@@ -37,7 +37,7 @@ export function ProjectCompanionPanel({
   return (
     <div className="lg:col-span-4 xl:col-span-3 flex flex-col justify-end lg:pl-2">
       <div>
-        <div className="flex items-center gap-2.5 mb-2">
+        <div className="mt-5 sm:mt-0 flex items-center gap-2.5 mb-2 lg:mb-2">
           <span
             aria-hidden="true"
             style={{ boxShadow: "0 0 8px var(--neon-lime)" }}
@@ -48,28 +48,28 @@ export function ProjectCompanionPanel({
           </p>
         </div>
 
-        <h2 className="font-display text-2xl sm:text-3xl font-extrabold tracking-tight text-[var(--ink-black)] leading-tight mb-2.5">
+        <h2 className="font-display text-2xl sm:text-3xl font-extrabold tracking-tight text-[var(--ink-black)] leading-tight mb-1.5 lg:mb-2.5">
           {project.title}
         </h2>
 
-        <p className="text-xs sm:text-sm text-[var(--ink-muted)] leading-relaxed min-h-[7.5rem]">
+        <p className="text-xs sm:text-sm text-[var(--ink-muted)] leading-relaxed lg:min-h-[7.5rem]">
           {cardSummary}
         </p>
       </div>
 
-      <div className="mt-4 pt-4 border-t border-[#E4E4E7]">
-        <div className="grid grid-cols-3 gap-3">
+      <div className="mt-3 pt-1 pb-3 sm:pb-0 lg:mt-4 lg:pt-4 border-b sm:border-t border-[#E4E4E7]">
+        <div className="grid grid-cols-3 gap-2 sm:gap-3">
           {coreTriad.map((tech) => (
             <TechIconTile key={tech} name={tech} compact />
           ))}
         </div>
       </div>
 
-      <div className="mt-7">
+      <div className="mt-0 lg:mt-7">
         <button
           type="button"
           onClick={onOpenCaseStudy}
-          className="group relative w-full flex items-center justify-between py-3.5 px-0 hover:bg-[#F8F9FA] text-left cursor-pointer transition-colors border-b-2 border-[var(--ink-black)] overflow-hidden"
+          className="group relative w-full flex items-center justify-between py-4 lg:py-3.5 px-0 hover:bg-[#F8F9FA] text-left cursor-pointer transition-colors border-b-2 border-[var(--ink-black)] overflow-hidden"
         >
           <span
             aria-hidden="true"
@@ -90,7 +90,7 @@ export function ProjectCompanionPanel({
             href={demoHref}
             target={project.liveUrl ? "_blank" : undefined}
             rel={project.liveUrl ? "noopener noreferrer" : undefined}
-            className="group flex items-center justify-center gap-1.5 py-3 text-[10px] font-extrabold uppercase tracking-[0.16em] text-[#0B0C0E] hover:bg-[#F8F9FA] hover:text-[var(--neon-lime)] transition-colors"
+            className="group flex items-center justify-center gap-1.5 py-3 lg:py-3 text-[10px] font-extrabold uppercase tracking-[0.16em] text-[#0B0C0E] hover:bg-[#F8F9FA] hover:text-[var(--neon-lime)] transition-colors"
           >
             <span>{locale === "en" ? "Live Demo" : "Demo en Vivo"}</span>
             <ArrowUpRight
@@ -103,7 +103,7 @@ export function ProjectCompanionPanel({
             href={repoHref}
             target={project.repositoryUrl ? "_blank" : undefined}
             rel={project.repositoryUrl ? "noopener noreferrer" : undefined}
-            className="group flex items-center justify-center gap-1.5 py-3 text-[10px] font-extrabold uppercase tracking-[0.16em] text-[#0B0C0E] hover:bg-[#F8F9FA] hover:text-[var(--neon-lime)] transition-colors"
+            className="group flex items-center justify-center gap-1.5 py-3 lg:py-3 text-[10px] font-extrabold uppercase tracking-[0.16em] text-[#0B0C0E] hover:bg-[#F8F9FA] hover:text-[var(--neon-lime)] transition-colors"
           >
             <GithubIcon className="h-3.5 w-3.5" />
             <span>GitHub</span>
@@ -115,7 +115,7 @@ export function ProjectCompanionPanel({
         </div>
       </div>
 
-      <div className="mt-6 flex items-center justify-between">
+      <div className="hidden lg:flex mt-6 items-center justify-between">
         <span className="font-mono text-[11px] font-bold tracking-[0.18em] text-[#71717A]">
           <span className="text-[#0B0C0E]">0{currentIndex + 1}</span> / 0{total}
         </span>

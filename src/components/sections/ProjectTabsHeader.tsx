@@ -15,8 +15,8 @@ export function ProjectTabsHeader({
 }: ProjectTabsHeaderProps) {
   return (
     <div className="mb-6 lg:mb-8">
-      <div className="flex flex-col xl:flex-row xl:items-end justify-between gap-4 border-b border-[#E4E4E7]">
-        <div className="pb-3.5 flex items-center gap-2.5 shrink-0">
+      <div className="flex flex-col xl:flex-row xl:items-end justify-between gap-4 sm:border-b border-[#E4E4E7]">
+        <div className="sm:pb-3.5 flex items-center gap-2.5 shrink-0">
           <span
             aria-hidden="true"
             style={{ boxShadow: "0 0 8px var(--neon-lime)" }}
@@ -32,7 +32,7 @@ export function ProjectTabsHeader({
           aria-label={
             locale === "en" ? "Project selector" : "Selector de proyectos"
           }
-          className="flex flex-wrap items-center gap-x-5 sm:gap-x-7 gap-y-2"
+          className="hidden lg:flex flex-nowrap xl:flex-wrap items-center gap-x-5 sm:gap-x-7 gap-y-2 overflow-x-auto no-scrollbar"
         >
           {items.map((item, idx) => {
             const isActive = idx === currentIndex;

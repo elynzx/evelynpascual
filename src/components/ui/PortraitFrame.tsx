@@ -5,7 +5,7 @@ interface PortraitFrameProps {
 
 export function PortraitFrame({ imageSrc, imageAlt }: PortraitFrameProps) {
   return (
-    <div className="relative w-[245px] sm:w-[265px] mb-5">
+    <div className="relative w-[195px] sm:w-[235px] xl:w-[265px] mb-5">
       <style>{`
         @keyframes portraitBusPulse {
           0% {
