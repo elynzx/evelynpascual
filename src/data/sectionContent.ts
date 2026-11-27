@@ -56,7 +56,7 @@ const EMAIL_SEGMENTS = ["elynzx.dev", "gmail", "com"] as const;
 export const getContactEmail = (): string =>
   `${EMAIL_SEGMENTS[0]}@${EMAIL_SEGMENTS[1]}.${EMAIL_SEGMENTS[2]}`;
 
-export const NAV_RAIL_ITEMS: Record<Locale, NavRailItem[]> = {
+export const NAV_RAIL_ITEMS: Record<Locale, RailNavItem[]> = {
   en: [
     { id: "top", index: "00", label: "Home", href: "#top" },
     { id: "projects", index: "01", label: "Projects", href: "#projects" },
