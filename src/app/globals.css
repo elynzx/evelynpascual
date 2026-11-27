@@ -1,0 +1,196 @@
+@import "tailwindcss";
+
+:root {
+  --background: #FFFFFF;
+  --foreground: #0B0C0E;
+  --surface-tech: #F8F9FA;
+  --ink-black: #0B0C0E;
+  --ink-muted: #52525B;
+  --neon-lime: #e981d7;
+  --neon-pink: #e981d7;
+  --neon-cyan: #e981d7;
+  --border-structural: #0B0C0E;
+  --border-hairline: #E4E4E7;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-surface-tech: var(--surface-tech);
+  --color-ink-black: var(--ink-black);
+  --color-ink-muted: var(--ink-muted);
+  --color-neon-cyan: var(--neon-cyan);
+  --color-neon-lime: var(--neon-lime);
+  --color-neon-pink: var(--neon-pink);
+  --color-border-structural: var(--border-structural);
+  --color-border-hairline: var(--border-hairline);
+  --font-sans: var(--font-sans), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-display: var(--font-display), var(--font-sans), sans-serif;
+  --font-mono: var(--font-sans), sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+  background-color: var(--background);
+  color: var(--foreground);
+}
+
+@media (min-width: 1024px) {
+  html {
+    scroll-snap-type: y mandatory;
+  }
+
+  section[id],
+  footer {
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+  }
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1,
+h2,
+h3,
+h4,
+.font-display {
+  font-family: var(--font-display), var(--font-sans), sans-serif;
+}
+
+::selection {
+  background-color: var(--neon-lime);
+  color: var(--ink-black);
+}
+
+.device-scroll {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.device-scroll::-webkit-scrollbar {
+  display: none;
+  width: 0;
+  height: 0;
+}
+
+@keyframes slideBloom {
+  0% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-slide-bloom {
+  animation: slideBloom 0.45s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+@keyframes arrowNudgeRight {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(3px);
+  }
+}
+
+.animate-arrow-nudge {
+  animation: arrowNudgeRight 2s ease-in-out infinite;
+}
+
+@keyframes beam-vertical {
+  0% {
+    top: -22%;
+    opacity: 0;
+  }
+  15% {
+    opacity: 1;
+  }
+  85% {
+    opacity: 1;
+  }
+  100% {
+    top: 105%;
+    opacity: 0;
+  }
+}
+
+@keyframes beam-horizontal {
+  0% {
+    left: -18%;
+    opacity: 0;
+  }
+  15% {
+    opacity: 1;
+  }
+  85% {
+    opacity: 1;
+  }
+  100% {
+    left: 105%;
+    opacity: 0;
+  }
+}
+
+.animate-beam-vertical {
+  animation: beam-vertical 5.5s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
+.animate-beam-horizontal {
+  animation: beam-horizontal 7s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-up {
+  opacity: 0;
+  animation: fadeInUp 0.7s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+@keyframes silkWaveDrift {
+  0%,
+  100% {
+    transform: translateY(0px) rotate(-3deg) scale(1);
+  }
+  50% {
+    transform: translateY(-14px) rotate(3deg) scale(1.05);
+  }
+}
+
+@keyframes silkWaveCounter {
+  0%,
+  100% {
+    transform: translateY(0px) rotate(4deg) scale(1);
+  }
+  50% {
+    transform: translateY(12px) rotate(-2deg) scale(1.04);
+  }
+}
+
+.animate-silk-wave {
+  animation: silkWaveDrift 8s ease-in-out infinite;
+}
+
+.animate-silk-wave-counter {
+  animation: silkWaveCounter 11s ease-in-out infinite;
+}
