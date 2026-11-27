@@ -91,8 +91,75 @@ h4,
   }
 }
 
+@keyframes slideFromRightMobile {
+  0% {
+    opacity: 0;
+    transform: translate3d(56px, 0, 0);
+  }
+  100% {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes slideFromLeftMobile {
+  0% {
+    opacity: 0;
+    transform: translate3d(-56px, 0, 0);
+  }
+  100% {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.animate-slide-next,
 .animate-slide-bloom {
-  animation: slideBloom 0.45s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  animation: slideFromRightMobile 0.44s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.animate-slide-prev {
+  animation: slideFromLeftMobile 0.44s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@media (min-width: 1024px) {
+  .animate-slide-next,
+  .animate-slide-prev,
+  .animate-slide-bloom {
+    animation: slideBloom 0.45s cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+}
+
+@keyframes chevronNudgeLeft {
+  0%,
+  100% {
+    transform: translateX(0);
+    opacity: 0.65;
+  }
+  50% {
+    transform: translateX(-4px);
+    opacity: 1;
+  }
+}
+
+@keyframes chevronNudgeRight {
+  0%,
+  100% {
+    transform: translateX(0);
+    opacity: 0.65;
+  }
+  50% {
+    transform: translateX(4px);
+    opacity: 1;
+  }
+}
+
+.animate-chevron-left {
+  animation: chevronNudgeLeft 2s ease-in-out infinite;
+}
+
+.animate-chevron-right {
+  animation: chevronNudgeRight 2s ease-in-out infinite;
 }
 
 @keyframes arrowNudgeRight {

@@ -9,6 +9,7 @@ interface ProjectCompanionPanelProps {
   currentIndex: number;
   total: number;
   locale: Locale;
+  slideDirection?: "next" | "prev";
   caseStudyLabel: string;
   onOpenCaseStudy: () => void;
   onPrev: () => void;
@@ -20,6 +21,7 @@ export function ProjectCompanionPanel({
   currentIndex,
   total,
   locale,
+  slideDirection = "next",
   caseStudyLabel,
   onOpenCaseStudy,
   onPrev,
@@ -29,47 +31,58 @@ export function ProjectCompanionPanel({
   const coreTriad = study?.coreTriad ?? project.techStack.slice(0, 3);
   const categoryLabel = study?.categoryLabel ?? project.role.toUpperCase();
   const cardSummary = study?.cardSummary ?? project.summary;
+  const mobileSummary = study?.mobileSummary ?? cardSummary;
 
   const demoHref = project.liveUrl || "#projects";
   const repoHref = project.repositoryUrl || "#projects";
   const cleanCaseStudyLabel = caseStudyLabel.replace(/\s*→\s*$/, "").trim();
+  const slideAnimClass =
+    slideDirection === "prev" ? "animate-slide-prev" : "animate-slide-next";
 
   return (
     <div className="lg:col-span-4 xl:col-span-3 flex flex-col justify-end lg:pl-2">
-      <div>
-        <div className="mt-5 sm:mt-0 flex items-center gap-2.5 mb-2 lg:mb-2">
-          <span
-            aria-hidden="true"
-            style={{ boxShadow: "0 0 8px var(--neon-lime)" }}
-            className="h-3.5 w-[2px] bg-[var(--neon-lime)] shrink-0"
-          />
-          <p className="text-[11px] font-extrabold uppercase tracking-[0.16em] text-[var(--ink-muted)] truncate">
-            {categoryLabel}
-          </p>
+      <div className="overflow-hidden">
+        <div key={project.id} className={slideAnimClass}>
+          <div className="h-[140px] sm:h-auto flex flex-col justify-start">
+            <div className="mt-4 sm:mt-0 flex items-center gap-2.5 mb-1.5 sm:mb-2 lg:mb-2">
+              <span
+                aria-hidden="true"
+                style={{ boxShadow: "0 0 8px var(--neon-lime)" }}
+                className="h-3.5 w-[2px] bg-[var(--neon-lime)] shrink-0"
+              />
+              <p className="text-[9px] font-extrabold uppercase tracking-[0.16em] text-[var(--ink-muted)] truncate">
+                {categoryLabel}
+              </p>
+            </div>
+
+            <h2 className="font-display text-xl sm:text-3xl font-extrabold tracking-tight text-[var(--ink-black)] leading-tight mb-1 lg:mb-2.5 truncate">
+              {project.title}
+            </h2>
+
+            <p className="sm:hidden text-xs leading-snug text-[var(--ink-muted)]">
+              {mobileSummary}
+            </p>
+
+            <p className="hidden sm:block text-sm text-[var(--ink-muted)] leading-relaxed lg:min-h-[7.5rem]">
+              {cardSummary}
+            </p>
+          </div>
+
+          <div className="mt-2 sm:mt-3 pt-1 pb-2.5 sm:pb-0 lg:mt-4 lg:pt-4 border-b sm:border-t border-[#E4E4E7] h-[68px] sm:h-auto flex items-center">
+            <div className="w-full grid grid-cols-3 gap-2 sm:gap-3">
+              {coreTriad.map((tech) => (
+                <TechIconTile key={tech} name={tech} compact />
+              ))}
+            </div>
+          </div>
         </div>
-
-        <h2 className="font-display text-2xl sm:text-3xl font-extrabold tracking-tight text-[var(--ink-black)] leading-tight mb-1.5 lg:mb-2.5">
-          {project.title}
-        </h2>
-
-        <p className="text-xs sm:text-sm text-[var(--ink-muted)] leading-relaxed lg:min-h-[7.5rem]">
-          {cardSummary}
-        </p>
       </div>
 
-      <div className="mt-3 pt-1 pb-3 sm:pb-0 lg:mt-4 lg:pt-4 border-b sm:border-t border-[#E4E4E7]">
-        <div className="grid grid-cols-3 gap-2 sm:gap-3">
-          {coreTriad.map((tech) => (
-            <TechIconTile key={tech} name={tech} compact />
-          ))}
-        </div>
-      </div>
-
-      <div className="mt-0 lg:mt-7">
+      <div className="mt-0 lg:mt-7 shrink-0">
         <button
           type="button"
           onClick={onOpenCaseStudy}
-          className="group relative w-full flex items-center justify-between py-4 lg:py-3.5 px-0 hover:bg-[#F8F9FA] text-left cursor-pointer transition-colors border-b-2 border-[var(--ink-black)] overflow-hidden"
+          className="group relative w-full flex items-center justify-between py-2.5 lg:py-3.5 px-0 hover:bg-[#F8F9FA] text-left cursor-pointer transition-colors border-b-2 border-[var(--ink-black)] overflow-hidden"
         >
           <span
             aria-hidden="true"

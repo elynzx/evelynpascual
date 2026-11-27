@@ -1,6 +1,6 @@
 "use client";
 
-import { ArrowLeft, ArrowRight, ChevronLeft, ChevronRight, Maximize2, X } from "lucide-react";
+import { ArrowLeft, ChevronLeft, ChevronRight, Maximize2, X } from "lucide-react";
 import { useEffect, useRef, useState, type UIEvent } from "react";
 import { createPortal } from "react-dom";
 import type { Locale, ProjectItem } from "@/data/dictionary";
@@ -12,6 +12,7 @@ interface DeviceStageProps {
   mobileImage?: string;
   currentIndex?: number;
   total?: number;
+  slideDirection?: "next" | "prev";
   onPrev?: () => void;
   onNext?: () => void;
 }
@@ -22,9 +23,12 @@ export function DeviceStage({
   mobileImage,
   currentIndex = 0,
   total = 1,
+  slideDirection = "next",
   onPrev,
   onNext,
 }: DeviceStageProps) {
+  const slideAnimClass =
+    slideDirection === "prev" ? "animate-slide-prev" : "animate-slide-next";
   const stageRef = useRef<HTMLDivElement | null>(null);
   const laptopViewportRef = useRef<HTMLDivElement | null>(null);
   const mobileViewportRef = useRef<HTMLDivElement | null>(null);
@@ -209,7 +213,7 @@ export function DeviceStage({
 
   return (
     <div ref={stageRef} className="relative w-full">
-      <div className="flex items-center justify-end sm:justify-between mb-3 lg:mb-3.5 text-[10px] font-extrabold uppercase tracking-[0.2em]">
+      <div className="mt-2 sm:mt-0 flex items-center justify-center sm:justify-between mb-0 sm:mb-3.5 lg:mb-3.5 text-[10px] font-extrabold uppercase tracking-[0.2em]">
         <div className="hidden sm:inline-flex items-center gap-2 text-[#0B0C0E]">
           <span
             style={{ boxShadow: "0 0 8px var(--neon-lime)" }}
@@ -220,14 +224,15 @@ export function DeviceStage({
           </span>
         </div>
 
-        <span className="lg:hidden font-mono text-[10px] font-bold tracking-[0.18em] text-[#71717A]">
+        <span className="hidden font-mono text-[10px] font-bold tracking-[0.18em] text-[#71717A]">
           <span className="text-[#0B0C0E]">0{currentIndex + 1}</span> / 0{total}
         </span>
       </div>
 
       <div className="relative w-full flex flex-col lg:block items-center">
         <div
-          className="hidden lg:block w-full lg:w-[82%] relative z-10 group"
+          key={`laptop-${project.id}`}
+          className={`hidden lg:block w-full lg:w-[82%] relative z-10 group ${slideAnimClass}`}
           onMouseEnter={() => setIsLaptopInteracting(true)}
           onMouseLeave={() => setIsLaptopInteracting(false)}
           onWheel={handleLaptopManualScroll}
@@ -300,7 +305,7 @@ export function DeviceStage({
           </div>
         </div>
 
-        <div className="w-full flex items-center justify-center gap-8 sm:gap-5 lg:block">
+        <div className="w-full flex items-center justify-center gap-2 sm:gap-5 lg:block">
           {onPrev ? (
             <button
               type="button"
@@ -308,11 +313,11 @@ export function DeviceStage({
               aria-label={
                 locale === "en" ? "Previous project" : "Proyecto anterior"
               }
-              className="lg:hidden group flex h-10 w-10 shrink-0 items-center justify-center bg-white border border-[#b2b2b6] text-[#5b5c5f] hover:border-[#0B0C0E] hover:bg-[#F8F9FA] shadow-xs transition-colors cursor-pointer"
+              className="lg:hidden group flex h-11 w-9 shrink-0 items-center justify-center bg-transparent border-0 text-[#8E8E93] hover:text-[var(--neon-lime)] active:scale-95 transition-all cursor-pointer"
             >
-              <ArrowLeft
-                className="h-4 w-4 group-hover:text-[var(--neon-lime)] group-hover:-translate-x-0.5 transition-all"
-                strokeWidth={2}
+              <ChevronLeft
+                className="h-7 w-7 animate-chevron-left group-hover:text-[var(--neon-lime)] transition-colors"
+                strokeWidth={2.25}
               />
             </button>
           ) : null}
@@ -326,6 +331,7 @@ export function DeviceStage({
             viewportRef={mobileViewportRef}
             onScroll={handleMobileScroll}
             onError={() => setMobileImgError(true)}
+            animationClassName={slideAnimClass}
           />
 
           {onNext ? (
@@ -333,11 +339,11 @@ export function DeviceStage({
               type="button"
               onClick={onNext}
               aria-label={locale === "en" ? "Next project" : "Siguiente proyecto"}
-              className="lg:hidden group flex h-10 w-10 shrink-0 items-center justify-center bg-white border border-[#b2b2b6] text-[#5b5c5f] hover:bg-[#F8F9FA] shadow-xs transition-colors cursor-pointer"
+              className="lg:hidden group flex h-11 w-9 shrink-0 items-center justify-center bg-transparent border-0 text-[#8E8E93] hover:text-[var(--neon-lime)] active:scale-95 transition-all cursor-pointer"
             >
-              <ArrowRight
-                className="h-4 w-4 group-hover:text-[var(--neon-lime)] group-hover:translate-x-0.5 transition-all"
-                strokeWidth={2}
+              <ChevronRight
+                className="h-7 w-7 animate-chevron-right group-hover:text-[var(--neon-lime)] transition-colors"
+                strokeWidth={2.25}
               />
             </button>
           ) : null}

@@ -27,7 +27,7 @@ export function AboutEditorial({ about, locale }: AboutEditorialProps) {
     >
       <CircuitBackdrop variant="trajectory" />
 
-      <div className="relative pr-17 pt-8 sm:pt-0 ml-6 sm:ml-auto z-10 mx-auto w-full max-w-[1440px] 2xl:max-w-[1540px] flex-1 flex flex-col justify-between px-11 sm:px-16 md:px-20 lg:pl-24 lg:pr-24 xl:pl-52 xl:pr-28 2xl:pl-48 2xl:pr-24">
+      <div className="relative pr-17 pt-8 sm:pt-0 ml-4 sm:ml-auto z-10 mx-auto w-full max-w-[1440px] 2xl:max-w-[1540px] flex-1 flex flex-col justify-between px-11 sm:px-16 md:px-20 lg:pl-24 lg:pr-24 xl:pl-52 xl:pr-28 2xl:pl-48 2xl:pr-24">
         <SectionHeader
           index="02"
           title={locale === "en" ? "TRAJECTORY" : "TRAYECTORIA"}
@@ -42,8 +42,8 @@ export function AboutEditorial({ about, locale }: AboutEditorialProps) {
               imageAlt="Evelyn Pascual"
             />
 
-            <div className="max-w-[310px] flex flex-col items-center lg:items-start">
-              <div className="flex items-center justify-center lg:justify-start gap-2 mb-1">
+            <div className="max-w-[310px] flex flex-col items-start">
+              <div className="flex items-center justify-start gap-2 mb-1">
                 <span
                   aria-hidden="true"
                   style={{ boxShadow: "0 0 8px var(--neon-lime)" }}
@@ -58,7 +58,7 @@ export function AboutEditorial({ about, locale }: AboutEditorialProps) {
                 Evelyn Pascual
               </h2>
 
-              <p className="text-xs sm:text-[13.5px] text-[#52525B] leading-relaxed pt-3 border-t border-[#E4E4E7]">
+              <p className="text-xs sm:text-[13.5px] text-[#29292b] leading-relaxed pt-3 border-t border-[#E4E4E7]">
                 {hookBio}
               </p>
             </div>
