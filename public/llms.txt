@@ -1,0 +1,63 @@
+# Evelyn Pascual | Full-Stack Software Engineer (Java, Spring Boot & React)
+
+> Full-Stack Software Engineer based in Lima, Peru. Specialized in building reliable backend architectures with Java and Spring Boot, role-based JWT security, relational data modeling with MySQL, and modular web interfaces with React, TypeScript, Zustand, and Vanilla JavaScript (ES6+). Combines Top 10% academic performance in Systems & Informatics Engineering at UTP with hands-on leadership in commercial operations, Scrum delivery, and STEM community outreach.
+
+- Canonical Portfolio URL: https://evelynpascual.pages.dev
+- GitHub Profile: https://github.com/elynzx
+- Lumina Eventos Repository: https://github.com/elynzx/alquiler-eventos-frontend
+- Featured Live Project (Siro Plan): https://siroplan.pages.dev/
+- LinkedIn: https://www.linkedin.com/in/evelynpascual/
+
+## Academic Standing & Engineering Training
+
+- **B.S. in Systems & Informatics Engineering (Aug 2022 – Present)**: Universidad Tecnológica del Perú (UTP). Ranked in the **Top 10% (Décimo Superior, GPA 18.67/20)** for two consecutive years based on academic excellence in enterprise software architecture, object-oriented programming, relational databases, and systems analysis.
+- **Generation Colombia · Cohort 14 (Sep 2026 – Present)**: Intensive Java Full-Stack Development program focused on Java, Spring Boot, RESTful API design, MySQL, Git workflows, and Agile Scrum leadership.
+- **TECSUP (Jan 2026 – Aug 2026)**: Completed a 312-hour intensive Full-Stack Web Development with Python program (**Final GPA: 19/20**), mastering React, JavaScript (ES6+), Django REST Framework, and Flask.
+
+## Community Leadership & STEM Volunteering
+
+- **STEAM Committee Member, IEEE Women in Engineering (WIE) · UTP Chapter (Mar 2026 – Aug 2026)**: Designed and facilitated hands-on technology workshops for school students to introduce more young women to STEM.
+
+## Core Technical Stack
+
+- **Backend & Data Architecture**: Java, Spring Boot, Spring Security (Role-Based JWT Authentication), Spring Data JPA, Jakarta Validation, RESTful APIs, MySQL, PostgreSQL, Supabase, Python (Django, Flask).
+- **Frontend & Editorial UI**: React, Angular, TypeScript, Zustand, React Hook Form, Atomic Design, Modular Vanilla JavaScript (ES6+), Next.js, Tailwind CSS, HTML5, CSS3.
+- **Cloud, DevOps & Tooling**: Microsoft Azure, Docker, Cloudinary, Cloudflare Pages, Git, GitHub, Postman, Maven, Vite.
+- **Methodology & Delivery**: Agile Scrum, Stakeholder Requirement Discovery, Technical Documentation, End-to-End Delivery.
+
+## Transferable Commercial & Operations Background (2015 – 2025)
+
+Before transitioning into software engineering, Evelyn led independent commercial and architectural retail design projects (2015–2019) and founded and operated an international e-commerce brand serving customers across 15+ countries (2020–2025). This background translates directly into software engineering strengths:
+- **Stakeholder Requirement Discovery**: Translating client and business needs into clear technical specifications before writing code.
+- **Cross-Functional Coordination**: Aligning multidisciplinary contributors and end users to deliver projects on schedule.
+- **End-to-End Ownership**: Managing full product lifecycles, international customer operations, and tight delivery deadlines.
+
+## Core Software Projects
+
+### 1. Lumina Eventos (Full-Stack Event Venue Rental Platform)
+- **Repository**: https://github.com/elynzx/alquiler-eventos-frontend
+- **Domain**: Full-Stack Event Venue & Furniture Reservation Platform
+- **Stack**: Java, Spring Boot, Spring Security (JWT), MySQL, React, TypeScript, Zustand, React Hook Form, Tailwind CSS, Cloudinary
+- **Summary**: Full-stack platform for booking event venues and furniture. Implemented role-based JWT authentication (`CLIENTE` and `ADMIN`), multi-criteria venue filtering, PDF booking receipts, an admin CRUD dashboard, and a modular React frontend structured under Atomic Design with Zustand global state.
+
+### 2. PawGuard (Pet Insurance & Care Management Platform)
+- **Domain**: Full-Stack Web Application / Pet Insurance & Veterinary Care Management
+- **Stack**: React, TypeScript, Supabase, Java, Spring Boot (In Migration)
+- **Summary**: Web application simplifying pet insurance comparison, policy management, and veterinary care tracking, migrating backend services to a dedicated Java and Spring Boot REST API.
+
+### 3. Siro Plan (Kanban Task & Subtask Workspace)
+- **Live URL**: https://siroplan.pages.dev/
+- **Domain**: Productivity Workspace for Students & Young Professionals
+- **Stack**: Vanilla JavaScript (ES6+), CSS3, Cloudflare Pages, Java & Spring Boot (Next Phase)
+- **Summary**: Kanban task and subtask management workspace with an integrated Pomodoro focus timer, engineered with modular ES6 state management and deployed on Cloudflare Pages while building its Spring Boot persistence backend.
+
+### 4. Raíces del Valle (Collaborative Regional E-Commerce Platform)
+- **Role**: Scrum Master & Full-Stack Developer (Team of 4)
+- **Domain**: Collaborative Regional E-Commerce Web Application
+- **Stack**: Java, Spring Boot, MySQL, Vanilla JavaScript, CSS3, Git/GitHub, Scrum
+- **Summary**: Coordinated sprint ceremonies and team Git workflows as Scrum Master while developing dynamic product views, custom cart events in Vanilla JavaScript, and Spring Boot/MySQL REST endpoints.
+
+### 5. Lulú & Co (E-Commerce Storefront & Catalog Experience)
+- **Domain**: Modern Retail & Brand E-Commerce Web Application
+- **Stack**: React, TypeScript, Tailwind CSS
+- **Summary**: Responsive e-commerce storefront focused on clean visual hierarchy, product discovery, and streamlined checkout flows.
