@@ -43,6 +43,17 @@ export function DeviceStage({
 
   const currentSlide = slides[slideIndex] ?? project.imagePath;
   const hasMultipleSlides = slides.length > 1;
+  const resolvedMobileImage =
+    mobileImage ?? project.mobileImage ?? project.imagePath;
+
+  useEffect(() => {
+    const urls = [...slides, resolvedMobileImage].filter(Boolean);
+    urls.forEach((src) => {
+      const img = new window.Image();
+      img.decoding = "async";
+      img.src = src;
+    });
+  }, [slides, resolvedMobileImage]);
 
   useEffect(() => {
     setSlideIndex(0);
@@ -66,6 +77,12 @@ export function DeviceStage({
     if (!isLightboxOpen) return;
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === "Escape") setIsLightboxOpen(false);
+      if (hasMultipleSlides && e.key === "ArrowRight") {
+        setSlideIndex((prev) => (prev + 1) % slides.length);
+      }
+      if (hasMultipleSlides && e.key === "ArrowLeft") {
+        setSlideIndex((prev) => (prev - 1 + slides.length) % slides.length);
+      }
     };
     document.body.style.overflow = "hidden";
     window.addEventListener("keydown", handleKeyDown);
@@ -73,7 +90,7 @@ export function DeviceStage({
       document.body.style.overflow = "";
       window.removeEventListener("keydown", handleKeyDown);
     };
-  }, [isLightboxOpen]);
+  }, [isLightboxOpen, hasMultipleSlides, slides.length]);
 
   useEffect(() => {
     const el = stageRef.current;
@@ -182,9 +199,6 @@ export function DeviceStage({
     }
   };
 
-  const resolvedMobileImage =
-    mobileImage ?? project.mobileImage ?? project.imagePath;
-
   return (
     <div ref={stageRef} className="relative w-full">
       <div className="flex items-center justify-between mb-3.5 text-[10px] font-extrabold uppercase tracking-[0.2em]">
@@ -233,7 +247,7 @@ export function DeviceStage({
                     ? `Expand ${project.title} screenshot`
                     : `Ampliar captura de ${project.title}`
                 }
-                className="relative aspect-[16/10] w-full rounded-[6px] overflow-hidden bg-white ring-1 ring-white/10 cursor-zoom-in"
+                className="relative aspect-[16/10] w-full rounded-[6px] overflow-hidden bg-[#F8F9FA] ring-1 ring-white/10 cursor-zoom-in"
               >
                 <div
                   ref={laptopViewportRef}
@@ -243,6 +257,8 @@ export function DeviceStage({
                     <img
                       src={currentSlide}
                       alt={`${project.title} desktop view ${slideIndex + 1}`}
+                      loading="eager"
+                      decoding="async"
                       onError={() => setLaptopImgError(true)}
                       className="w-full min-h-full h-auto object-cover object-top block select-none transition-opacity duration-300"
                     />
