@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { Moon, Sun } from "lucide-react";
 import { NAV_RAIL_ITEMS, type Locale, type NavSection } from "@/data/dictionary";
+import { SocialRail } from "@/components/layout/SocialRail";
 
 interface NavbarProps {
   nav: NavSection;
@@ -10,7 +11,7 @@ interface NavbarProps {
   onToggleLocale: () => void;
 }
 
-export function Navbar({ locale, onToggleLocale }: NavbarProps) {
+export function Navbar({ nav, locale, onToggleLocale }: NavbarProps) {
   const [activeId, setActiveId] = useState<string>("top");
   const [isDarkPreview, setIsDarkPreview] = useState(false);
   const railItems = NAV_RAIL_ITEMS[locale];
@@ -41,17 +42,50 @@ export function Navbar({ locale, onToggleLocale }: NavbarProps) {
 
   return (
     <>
-      <div
-        aria-label="Language and Theme Controls"
-        className="flex fixed top-3.5 right-2.5 sm:right-0 sm:top-5 sm:left-4 lg:top-6 lg:left-6 xl:left-8 z-50 items-center gap-2 sm:gap-3.5 pointer-events-auto select-none animate-fade-in-up"
-      >
+      <header className="sm:hidden sticky top-0 z-50 w-full bg-[#FFFFFF] border-b border-[#E4E4E7] px-4 h-12 flex items-center justify-between select-none">
+        <SocialRail
+          socialLinks={nav.socialLinks}
+          locale={locale}
+          variant="mobileHeader"
+        />
+
         <div
-          className="flex items-center gap-1 sm:gap-1.5 text-[13px] sm:text-[11px] tracking-[0.16em] sm:tracking-[0.18em] uppercase"
+          className="flex items-center gap-1 text-[13px] tracking-[0.16em] uppercase"
           role="group"
           aria-label="Language selector"
         >
           {(["en", "es"] as const).map((lang, i) => (
-            <span key={lang} className="inline-flex items-center gap-1 sm:gap-1.5">
+            <span key={lang} className="inline-flex items-center gap-1">
+              {i > 0 && <span className="text-[#E4E4E7]">/</span>}
+              <button
+                type="button"
+                onClick={() => {
+                  if (locale !== lang) onToggleLocale();
+                }}
+                className={`pb-0.5 transition-colors cursor-pointer uppercase ${
+                  locale === lang
+                    ? "font-extrabold text-[var(--ink-black)] border-b-2 border-[var(--neon-lime)]"
+                    : "font-semibold text-[#A1A1AA] hover:text-[var(--ink-black)]"
+                }`}
+              >
+                {lang}
+              </button>
+            </span>
+          ))}
+        </div>
+      </header>
+
+      <div
+        aria-label="Language and Theme Controls"
+        className="hidden sm:flex fixed sm:top-5 sm:left-4 lg:top-6 lg:left-6 xl:left-8 z-50 items-center gap-3.5 pointer-events-auto select-none animate-fade-in-up"
+      >
+        <div
+          className="flex items-center gap-1.5 text-[11px] tracking-[0.18em] uppercase"
+          role="group"
+          aria-label="Language selector"
+        >
+          {(["en", "es"] as const).map((lang, i) => (
+            <span key={lang} className="inline-flex items-center gap-1.5">
               {i > 0 && <span className="text-[#E4E4E7]">/</span>}
               <button
                 type="button"
@@ -70,13 +104,13 @@ export function Navbar({ locale, onToggleLocale }: NavbarProps) {
           ))}
         </div>
 
-        <span className="h-3 sm:h-3.5 w-[1px] bg-[#E4E4E7]" aria-hidden="true" />
+        <span className="h-3.5 w-[1px] bg-[#E4E4E7]" aria-hidden="true" />
 
         <button
           type="button"
           onClick={() => setIsDarkPreview((prev) => !prev)}
           aria-label="Toggle theme"
-          className="hidden sm:flex text-[#71717A] hover:text-[var(--ink-black)] transition-colors cursor-pointer"
+          className="flex text-[#71717A] hover:text-[var(--ink-black)] transition-colors cursor-pointer"
         >
           <ThemeIcon className="h-3.5 w-3.5" strokeWidth={1.75} />
         </button>
