@@ -10,6 +10,7 @@ export interface CaseStudyData {
   roleTitle: string;
   categoryLabel: string;
   cardSummary: string;
+  mobileSummary: string;
   productOverview: string;
   featuresAndUseCases: CaseStudyFeature[];
   techStackParagraph: string;
@@ -27,6 +28,8 @@ export const PROJECT_CASE_STUDIES: Record<
       categoryLabel: "EVENT BOOKING PLATFORM",
       cardSummary:
         "Lets event venue owners manage multiple locations, furniture, and add-on services like catering or photography from an admin dashboard while clients book with instant quotes. Built with Java, Spring Boot, MySQL, and React.",
+      mobileSummary:
+        "Lets event venue owners manage multiple locations, furniture, and add-on services like catering or photography from an admin dashboard while clients book with instant quotes.",
       productOverview:
         "A full-stack event venue and furniture booking platform. It centralizes location, inventory, and reservation management for business owners while giving clients instant quotes and online booking in one flow.",
       featuresAndUseCases: [
@@ -56,6 +59,8 @@ export const PROJECT_CASE_STUDIES: Record<
       categoryLabel: "VETERINARY INSURTECH PLATFORM",
       cardSummary:
         "Enables veterinary businesses to launch and manage pet insurance plans while letting pet owners compare coverage, purchase policies, and track care. Built with React, TypeScript, Spring Boot, and PostgreSQL.",
+      mobileSummary:
+        "Enables veterinary businesses to launch and manage pet insurance plans while letting pet owners compare coverage, purchase policies, and track care.",
       productOverview:
         "A veterinary insurtech platform for the Peruvian market. It allows veterinary businesses to launch and manage insurance plans while pet owners compare coverage, enroll dogs or cats, and locate partner clinics.",
       featuresAndUseCases: [
@@ -85,6 +90,8 @@ export const PROJECT_CASE_STUDIES: Record<
       categoryLabel: "KANBAN & FOCUS WORKSPACE",
       cardSummary:
         "Breaks demanding study goals and dev projects into drag-and-drop Kanban tasks powered by Pomodoro sessions and Siro, a virtual study companion. Crafted with ES6+ JavaScript, Spring Boot, and MySQL.",
+      mobileSummary:
+        "Breaks demanding study goals and dev projects into drag-and-drop Kanban tasks powered by Pomodoro sessions and Siro, a virtual study companion.",
       productOverview:
         "A visual Kanban workspace with an integrated Pomodoro timer for students and creators. It pairs multi-project task boards with Siro, a cute virtual study companion designed to make daily planning inviting.",
       featuresAndUseCases: [
@@ -114,6 +121,8 @@ export const PROJECT_CASE_STUDIES: Record<
       categoryLabel: "AGRICULTURAL B2B/B2C MARKETPLACE",
       cardSummary:
         "Connects associated Colombian farms directly with local shops, restaurants, and families without middlemen. Led Agile delivery as Scrum Master and built core modules with JavaScript, Spring Boot, and MySQL.",
+      mobileSummary:
+        "Connects associated Colombian farms directly with local shops, restaurants, and families without middlemen.",
       productOverview:
         "A B2B and B2C agricultural marketplace that connects associated Colombian farms directly with local shops, restaurants, and households, eliminating middlemen and highlighting harvest origin.",
       featuresAndUseCases: [
@@ -142,7 +151,9 @@ export const PROJECT_CASE_STUDIES: Record<
       roleTitle: "Full-Stack Software Engineer",
       categoryLabel: "GLUTEN-FREE & SUGAR-FREE PERUVIAN DESSERTS",
       cardSummary:
-        "E-commerce platform for the US market specializing in healthy, sugar-free, diabetic-friendly, and gluten-free Peruvian desserts crafted with native ingredients, featuring an educational blog and order management. Built with React, Spring Boot, and MySQL.",
+        "E-commerce platform market specializing in healthy, sugar-free, diabetic-friendly, and gluten-free Peruvian desserts crafted with native ingredients, featuring an educational blog and order management. Built with React, Spring Boot, and MySQL.",
+      mobileSummary:
+        "E-commerce platform market for sugar-free, gluten-free Peruvian desserts with nutrition blog and order management.",
       productOverview:
         "A specialty e-commerce platform for the US market focused on healthy, sugar-free, diabetic-friendly, and gluten-free Peruvian desserts made with native ingredients like lucuma, combining online ordering with an educational blog.",
       featuresAndUseCases: [
@@ -174,6 +185,8 @@ export const PROJECT_CASE_STUDIES: Record<
       categoryLabel: "PLATAFORMA DE RESERVAS Y EVENTOS",
       cardSummary:
         "Permite a empresarios administrar múltiples locales, mobiliario y servicios adicionales como catering o fotografía desde un panel admin, mientras clientes cotizan y reservan al instante. Desarrollada con Java, Spring Boot, MySQL y React.",
+      mobileSummary:
+        "Plataforma full-stack de reserva de locales y mobiliario con panel admin multi-sede y cotización al instante.",
       productOverview:
         "Plataforma full-stack de gestión y reserva de locales y mobiliario para eventos. Centraliza el inventario y la disponibilidad para dueños de negocios mientras ofrece a los clientes cotización y reserva online en un solo flujo.",
       featuresAndUseCases: [
@@ -203,6 +216,8 @@ export const PROJECT_CASE_STUDIES: Record<
       categoryLabel: "PLATAFORMA INSURTECH VETERINARIA",
       cardSummary:
         "Permite a empresas veterinarias crear, gestionar y comercializar sus propios planes de seguro mientras los dueños comparan coberturas y adquieren pólizas. Construida con React, TypeScript, Spring Boot y PostgreSQL.",
+      mobileSummary:
+        "Plataforma insurtech veterinaria para gestionar planes de seguro, comparar coberturas y afiliar mascotas online.",
       productOverview:
         "Plataforma insurtech veterinaria diseñada para el mercado peruano. Permite a clínicas crear y gestionar planes de cobertura mientras los dueños comparan beneficios, afilian a sus mascotas y ubican veterinarias cercanas.",
       featuresAndUseCases: [
@@ -232,6 +247,8 @@ export const PROJECT_CASE_STUDIES: Record<
       categoryLabel: "WORKSPACE KANBAN Y ENFOQUE",
       cardSummary:
         "Convierte exámenes y proyectos exigentes en tareas Kanban con drag-and-drop, sesiones Pomodoro y la compañía de Siro, una mascota virtual de estudio. Creada con JavaScript ES6+, Spring Boot y MySQL.",
+      mobileSummary:
+        "Workspace Kanban con tableros drag-and-drop, temporizador Pomodoro y mascota virtual de estudio Siro.",
       productOverview:
         "Espacio de trabajo Kanban con temporizador Pomodoro integrado para estudiantes y creadores. Combina tableros por proyecto con Siro, una mascota virtual cute diseñada para hacer agradable la organización diaria.",
       featuresAndUseCases: [
@@ -261,6 +278,8 @@ export const PROJECT_CASE_STUDIES: Record<
       categoryLabel: "MARKETPLACE AGRÍCOLA B2B / B2C",
       cardSummary:
         "Conecta fincas campesinas asociadas en Colombia directamente con tiendas, restaurantes y hogares sin intermediarios. Lideré como Scrum Master y desarrollé módulos clave con JavaScript, Spring Boot y MySQL.",
+      mobileSummary:
+        "Marketplace agrícola B2B/B2C que conecta fincas colombianas directamente con tiendas, restaurantes y familias.",
       productOverview:
         "Marketplace agrícola B2B y B2C que conecta fincas campesinas asociadas en Colombia directamente con tiendas, restaurantes y hogares, eliminando intermediarios y destacando el origen de cada cosecha.",
       featuresAndUseCases: [
@@ -290,6 +309,8 @@ export const PROJECT_CASE_STUDIES: Record<
       categoryLabel: "POSTRES PERUANOS SIN GLUTEN Y APTOS PARA DIABÉTICOS",
       cardSummary:
         "E-commerce orientado al mercado de EE. UU. especializado en postres peruanos saludables, sin azúcar, aptos para diabéticos y libres de gluten elaborados con insumos nativos, con blog educativo y gestión de pedidos. Desarrollado con React, Spring Boot y MySQL.",
+      mobileSummary:
+        "E-commerce para EE. UU. de postres peruanos saludables sin azúcar ni gluten, con blog nutricional y pedidos.",
       productOverview:
         "E-commerce especializado para el mercado de EE. UU. enfocado en postres peruanos saludables, sin azúcar, aptos para diabéticos y libres de gluten elaborados con insumos nativos como la lúcuma, integrando compra online y blog educativo.",
       featuresAndUseCases: [

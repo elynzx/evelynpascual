@@ -317,7 +317,8 @@ export const dictionary: Record<Locale, PortfolioCopy> = {
             "Tailwind CSS",
             "Cloudinary",
           ],
-          repositoryUrl: "https://github.com/elynzx/alquiler-eventos-frontend",
+          liveUrl:"https://lumina-eventos.vercel.app/",
+          repositoryUrl: "https://github.com/elynzx/lumina-backend",
           repositoryLabel: "GitHub ↗",
           featuredMetric:
             "Role-based JWT ('CLIENTE' / 'ADMIN'), Atomic Design React frontend, Zustand state, and PDF booking receipts",
@@ -352,7 +353,8 @@ export const dictionary: Record<Locale, PortfolioCopy> = {
             "REST APIs",
             "Tailwind CSS",
           ],
-          repositoryUrl: "https://github.com/elynzx",
+          liveUrl:"https://pawguard-pet-insurance.vercel.app/",
+          repositoryUrl: "https://github.com/elynzx/pawguard-backend",
           repositoryLabel: "GitHub ↗",
           featuredMetric:
             "Type-safe React & TypeScript platform backed by Java, Spring Boot & PostgreSQL",
@@ -393,7 +395,7 @@ export const dictionary: Record<Locale, PortfolioCopy> = {
             "MySQL",
           ],
           liveUrl: "https://siroplan.pages.dev/",
-          repositoryUrl: "https://github.com/elynzx",
+          repositoryUrl: "https://github.com/elynzx/siroplan",
           repositoryLabel: "GitHub ↗",
           featuredMetric:
             "Modular ES6+ Kanban workspace with Java, Spring Boot & MySQL persistence",
@@ -428,7 +430,7 @@ export const dictionary: Record<Locale, PortfolioCopy> = {
             "Git / GitHub",
             "Scrum Master",
           ],
-          repositoryUrl: "https://github.com/elynzx",
+          repositoryUrl: "https://github.com/DwDarwin/raices-del-valle-backend",
           repositoryLabel: "GitHub ↗",
           featuredMetric:
             "Dual leadership as Scrum Master and Full-Stack Developer guiding a 4-person Agile team",
@@ -464,6 +466,7 @@ export const dictionary: Record<Locale, PortfolioCopy> = {
             "Spring Boot",
             "MySQL",
           ],
+          liveUrl: "https://lulu-and-co-ecommerce.vercel.app/",
           repositoryUrl: "https://github.com/elynzx",
           repositoryLabel: "GitHub ↗",
           featuredMetric:
@@ -985,7 +988,7 @@ public record VenueBookingRequest(
             "Git / GitHub",
             "Scrum Master",
           ],
-          repositoryUrl: "https://github.com/elynzx",
+          repositoryUrl: "https://github.com/DwDarwin/raices-del-valle-backend",
           repositoryLabel: "GitHub ↗",
           featuredMetric:
             "Doble rol como Scrum Master y Desarrolladora Full-Stack coordinando un equipo ágil de 4 integrantes",

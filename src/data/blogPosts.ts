@@ -27,7 +27,7 @@ export const BLOG_POSTS: Record<Locale, BlogPost[]> = {
       date: "OCT 2026",
       readTime: "2 MIN READ",
       title: "They Say Requirements Change. For Us, the Entire Rubric Did.",
-      hook: "During week four at Generation Colombia, we tackled an emergency sprint with Bootstrap, Git, and JavaScript—only to discover we had been building against an older rubric.",
+      hook: "During week four at Generation Colombia, we tackled an emergency sprint with Bootstrap, Git, and JavaScript, only to discover we had been building against an older rubric.",
       coverImage: "/images/blog/primer-fork-team.jpg",
       coverAlt: "Generation Colombia Cohort 14 Team - Our First Fork",
       paragraphs: [
