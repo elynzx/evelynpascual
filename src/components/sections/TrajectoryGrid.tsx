@@ -24,7 +24,7 @@ export function TrajectoryGrid({ trajectory, locale }: TrajectoryGridProps) {
     >
       <CircuitBackdrop variant="stack" />
 
-      <div className="ml-6 md:ml-auto pr-17 pt-8 sm:pt-0  relative z-10 mx-auto w-full max-w-[1440px] 2xl:max-w-[1540px] flex-1 flex flex-col justify-between px-11 sm:px-16 md:px-20 lg:pl-24 lg:pr-24 xl:pl-52 xl:pr-28 2xl:pl-48 2xl:pr-24">
+      <div className="ml-4 md:ml-auto pr-17 pt-8 sm:pt-0  relative z-10 mx-auto w-full max-w-[1440px] 2xl:max-w-[1540px] flex-1 flex flex-col justify-between px-11 sm:px-16 md:px-20 lg:pl-24 lg:pr-24 xl:pl-52 xl:pr-28 2xl:pl-48 2xl:pr-24">
         <SectionHeader
           index="03"
           title={locale === "en" ? "TECH STACK" : "STACK TÉCNICO"}

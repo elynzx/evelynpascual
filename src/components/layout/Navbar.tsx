@@ -42,7 +42,7 @@ export function Navbar({ nav, locale, onToggleLocale }: NavbarProps) {
 
   return (
     <>
-      <header className="sm:hidden sticky top-0 z-50 w-full bg-[#FFFFFF] border-b border-[#E4E4E7] px-4 h-12 flex items-center justify-between select-none">
+      <header className="sm:hidden sticky top-0 z-50 w-full bg-[#FFFFFF] border-b border-[#E4E4E7] px-3 h-12 flex items-center justify-between select-none">
         <SocialRail
           socialLinks={nav.socialLinks}
           locale={locale}
@@ -118,7 +118,7 @@ export function Navbar({ nav, locale, onToggleLocale }: NavbarProps) {
 
       <aside
         aria-label="Section Navigation"
-        className="flex fixed top-1/2 -translate-y-1/2 left-2.5 sm:left-4 lg:left-6 xl:left-8 z-50 flex-col items-start pointer-events-auto select-none"
+        className="flex fixed top-1/2 -translate-y-1/2 left-2.5 sm:left-4 lg:left-6 xl:left-8 z-45 sm:z-50 flex-col items-start pointer-events-auto select-none"
       >
         <nav
           aria-label="Portfolio Sections"

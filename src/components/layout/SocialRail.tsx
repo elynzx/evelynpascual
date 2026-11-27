@@ -65,7 +65,7 @@ export function SocialRail({
       {variant === "mobileHeader" ? (
         <div
           aria-label="Social Channels"
-          className="flex items-center gap-3.5 select-none"
+          className="flex items-center gap-2 select-none"
         >
           {externalLinks.map(({ href, label, Icon, download }) => (
             <a

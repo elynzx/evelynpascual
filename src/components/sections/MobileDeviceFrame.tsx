@@ -12,6 +12,7 @@ interface MobileDeviceFrameProps {
   viewportRef: RefObject<HTMLDivElement | null>;
   onScroll: (e: UIEvent<HTMLDivElement>) => void;
   onError: () => void;
+  animationClassName?: string;
 }
 
 export function MobileDeviceFrame({
@@ -23,9 +24,10 @@ export function MobileDeviceFrame({
   viewportRef,
   onScroll,
   onError,
+  animationClassName = "",
 }: MobileDeviceFrameProps) {
   return (
-    <div className="w-[62%] max-w-[210px] sm:w-[46%] sm:max-w-[250px] lg:max-w-none lg:w-[23.5%] mt-1 lg:mt-0 lg:absolute lg:right-3 lg:bottom-0 z-20">
+    <div className="w-[185px] sm:w-[46%] sm:max-w-[250px] lg:max-w-none lg:w-[23.5%] mt-1 lg:mt-0 lg:absolute lg:right-3 lg:bottom-0 z-20 shrink-0">
       <span
         aria-hidden="true"
         className="hidden sm:block absolute -left-[2px] top-16 h-6 w-[2px] rounded-l bg-[#A1A1AA]"
@@ -41,7 +43,7 @@ export function MobileDeviceFrame({
 
       <div
         aria-hidden="true"
-        className={`xl:flex flex-col items-center gap-2 absolute right-12 top-1/4 sm:-right-7 sm:top-1/2 -translate-y-1/2 transition-opacity duration-500 pointer-events-none ${
+        className={`xl:flex flex-col items-center gap-2 absolute right-8 top-1/4 sm:-right-7 sm:top-1/2 -translate-y-1/2 transition-opacity duration-500 pointer-events-none ${
           hasScrolled ? "opacity-25" : "opacity-100"
         }`}
       >
@@ -68,10 +70,11 @@ export function MobileDeviceFrame({
             >
               {!imgError ? (
                 <img
+                  key={imageSrc}
                   src={imageSrc}
                   alt={`${title} mobile view`}
                   onError={onError}
-                  className="w-full h-auto block select-none"
+                  className={`w-full h-auto block select-none ${animationClassName}`}
                 />
               ) : null}
             </div>

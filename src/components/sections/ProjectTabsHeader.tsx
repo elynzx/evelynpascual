@@ -14,7 +14,7 @@ export function ProjectTabsHeader({
   locale,
 }: ProjectTabsHeaderProps) {
   return (
-    <div className="mb-6 lg:mb-8">
+    <div className="mb-1 lg:mb-8">
       <div className="flex flex-col xl:flex-row xl:items-end justify-between gap-4 sm:border-b border-[#E4E4E7]">
         <div className="sm:pb-3.5 flex items-center gap-2.5 shrink-0">
           <span

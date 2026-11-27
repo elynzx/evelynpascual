@@ -15,12 +15,28 @@ interface ProjectSheetProps {
 
 export function ProjectSheet({ projects, locale }: ProjectSheetProps) {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [slideDirection, setSlideDirection] = useState<"next" | "prev">("next");
   const [activeProject, setActiveProject] = useState<ProjectItem | null>(null);
   const [isVisible, setIsVisible] = useState(false);
   const sectionRef = useRef<HTMLElement | null>(null);
 
   const total = projects.items.length;
   const currentProject = projects.items[currentIndex] ?? projects.items[0];
+
+  const handlePrev = () => {
+    setSlideDirection("prev");
+    setCurrentIndex((prev) => (prev - 1 + total) % total);
+  };
+
+  const handleNext = () => {
+    setSlideDirection("next");
+    setCurrentIndex((prev) => (prev + 1) % total);
+  };
+
+  const handleSelect = (idx: number) => {
+    setSlideDirection(idx >= currentIndex ? "next" : "prev");
+    setCurrentIndex(idx);
+  };
 
   useEffect(() => {
     const el = sectionRef.current;
@@ -59,8 +75,10 @@ export function ProjectSheet({ projects, locale }: ProjectSheetProps) {
       }
 
       if (e.key === "ArrowLeft") {
+        setSlideDirection("prev");
         setCurrentIndex((prev) => (prev - 1 + total) % total);
       } else if (e.key === "ArrowRight") {
+        setSlideDirection("next");
         setCurrentIndex((prev) => (prev + 1) % total);
       }
     };
@@ -78,21 +96,18 @@ export function ProjectSheet({ projects, locale }: ProjectSheetProps) {
       <CircuitBackdrop variant="projects" />
 
       <div
-        className={` ml-6 md:ml-auto pr-17 pt-8 sm:pt-0 relative z-10 mx-auto w-full max-w-[1440px] 2xl:max-w-[1540px] flex-1 flex flex-col justify-between px-11 sm:px-16 md:px-20 lg:pl-24 lg:pr-24 xl:pl-52 xl:pr-28 2xl:pl-48 2xl:pr-24 transition-all duration-700 ease-out ${
+        className={` ml-4 md:ml-auto pr-17 pt-8 sm:pt-0 relative z-10 mx-auto w-full max-w-[1440px] 2xl:max-w-[1540px] flex-1 flex flex-col justify-between px-11 sm:px-16 md:px-20 lg:pl-24 lg:pr-24 xl:pl-52 xl:pr-28 2xl:pl-48 2xl:pr-24 transition-all duration-700 ease-out ${
           isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
         }`}
       >
         <ProjectTabsHeader
           items={projects.items}
           currentIndex={currentIndex}
-          onSelect={setCurrentIndex}
+          onSelect={handleSelect}
           locale={locale}
         />
 
-        <article
-          key={currentProject.id}
-          className="my-auto grid grid-cols-1 lg:grid-cols-12 xl:grid-cols-11 gap-5 lg:gap-10 xl:gap-16 2xl:gap-20 items-end animate-slide-bloom"
-        >
+        <article className="my-auto grid grid-cols-1 lg:grid-cols-12 xl:grid-cols-11 gap-2 lg:gap-10 xl:gap-16 2xl:gap-20 items-end">
           <div className="lg:col-span-8 xl:col-span-8">
             <DeviceStage
               project={currentProject}
@@ -100,8 +115,9 @@ export function ProjectSheet({ projects, locale }: ProjectSheetProps) {
               mobileImage={currentProject.mobileImage}
               currentIndex={currentIndex}
               total={total}
-              onPrev={() => setCurrentIndex((prev) => (prev - 1 + total) % total)}
-              onNext={() => setCurrentIndex((prev) => (prev + 1) % total)}
+              slideDirection={slideDirection}
+              onPrev={handlePrev}
+              onNext={handleNext}
             />
           </div>
 
@@ -110,10 +126,11 @@ export function ProjectSheet({ projects, locale }: ProjectSheetProps) {
             currentIndex={currentIndex}
             total={total}
             locale={locale}
+            slideDirection={slideDirection}
             caseStudyLabel={projects.inspectCaseStudyLabel}
             onOpenCaseStudy={() => setActiveProject(currentProject)}
-            onPrev={() => setCurrentIndex((prev) => (prev - 1 + total) % total)}
-            onNext={() => setCurrentIndex((prev) => (prev + 1) % total)}
+            onPrev={handlePrev}
+            onNext={handleNext}
           />
         </article>
       </div>

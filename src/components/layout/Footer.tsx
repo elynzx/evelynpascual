@@ -47,7 +47,7 @@ export function Footer({ nav, projects, locale, onToggleLocale }: FooterProps) {
 
       <div className="relative z-10 mx-auto max-w-[1440px] 2xl:max-w-[1540px] px-11 sm:px-16 md:px-20 lg:pl-24 lg:pr-24 xl:pl-52 xl:pr-28 2xl:pl-48 2xl:pr-24">
         <div className="pb-16 sm:pb-20 border-b border-[#E4E4E7] grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-start">
-          <div className="lg:col-span-5 flex flex-col items-start  ml-6 md:ml-0">
+          <div className="lg:col-span-5 flex flex-col items-start  ml-4 md:ml-0">
             <span className="font-mono text-[10.5px] font-extrabold uppercase tracking-[0.2em] text-[var(--neon-lime)] mb-4">
               {locale === "en" ? "05 // NEXT STEP" : "05 // SIGUIENTE PASO"}
             </span>
@@ -89,7 +89,7 @@ export function Footer({ nav, projects, locale, onToggleLocale }: FooterProps) {
             </button>
           </div>
 
-          <div className="lg:col-span-4 ml-6 md:ml-0">
+          <div className="lg:col-span-4 ml-4 md:ml-0">
             <p className="font-mono text-[10.5px] font-bold uppercase tracking-[0.2em] text-[#71717A] mb-6">
               {locale === "en" ? "01 // PROJECTS" : "01 // PROYECTOS"}
             </p>
@@ -120,7 +120,7 @@ export function Footer({ nav, projects, locale, onToggleLocale }: FooterProps) {
             </ul>
           </div>
 
-          <div className="lg:col-span-3 space-y-9 ml-6 md:ml-0">
+          <div className="lg:col-span-3 space-y-9 ml-4 md:ml-0">
             <div>
               <p className="font-mono text-[10.5px] font-bold uppercase tracking-[0.2em] text-[#71717A] mb-6">
                 {locale === "en" ? "02 // DIRECTORY" : "02 // DIRECTORIO"}

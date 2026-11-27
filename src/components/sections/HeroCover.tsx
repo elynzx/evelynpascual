@@ -53,7 +53,7 @@ export function HeroCover({ hero, locale }: HeroCoverProps) {
         />
       </div>
 
-      <div className="ml-6 sm:ml-auto relative mx-auto w-full max-w-[1440px] 2xl:max-w-[1540px] px-11 sm:px-16 md:px-20 lg:pl-24 lg:pr-24 xl:pl-52 xl:pr-28 2xl:pl-48 2xl:pr-24">
+      <div className="ml-4 sm:ml-auto relative mx-auto w-full max-w-[1440px] 2xl:max-w-[1540px] px-11 sm:px-16 md:px-20 lg:pl-24 lg:pr-24 xl:pl-52 xl:pr-28 2xl:pl-48 2xl:pr-24">
         <div className="w-full grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-10 xl:gap-12 items-center">
           <div className="relative z-20 order-1 lg:col-span-5 lg:self-end">
             <div

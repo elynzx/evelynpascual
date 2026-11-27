@@ -41,7 +41,7 @@ export function FieldNotes({ locale }: FieldNotesProps) {
     >
       <CircuitBackdrop variant="stack" />
 
-      <div className="relative pr-17 pt-8 sm:pt-0 ml-6 sm:ml-auto z-10 mx-auto w-full max-w-[1440px] 2xl:max-w-[1540px] flex-1 flex flex-col justify-between px-11 sm:px-16 md:px-20 lg:pl-24 lg:pr-24 xl:pl-52 xl:pr-28 2xl:pl-48 2xl:pr-24">
+      <div className="relative pr-17 pt-8 sm:pt-0 ml-4 sm:ml-auto z-10 mx-auto w-full max-w-[1440px] 2xl:max-w-[1540px] flex-1 flex flex-col justify-between px-11 sm:px-16 md:px-20 lg:pl-24 lg:pr-24 xl:pl-52 xl:pr-28 2xl:pl-48 2xl:pr-24">
         <div className="sm:mb-8 flex flex-col xl:flex-row xl:items-end justify-between gap-4 border-b-2 sm:border-b border-[#E4E4E7]">
           <div className="sm:pb-3.5 flex items-center gap-2.5 shrink-0">
             <span
@@ -96,13 +96,13 @@ export function FieldNotes({ locale }: FieldNotesProps) {
               })}
             </nav>
           ) : (
-            <span className="sm:pb-3.5 font-mono text-[11px] font-bold uppercase tracking-[0.16em] text-[#52525B]">
+            <span className="sm:pb-3.5 font-mono text-[9px] sm:text-[11px] font-bold uppercase tracking-[0.16em] text-[#52525B]">
               {post.postNumber} • {post.readTime}
             </span>
           )}
         </div>
 
-        <div className="my-auto pt-12 sm:pt-0 grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-12 xl:gap-14 items-start">
+        <div className="my-auto pt-8 sm:pt-0 grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-12 xl:gap-14 items-start">
           <div className="order-1 lg:col-span-5 flex flex-col items-center text-center lg:items-start lg:text-left">
             <p className="font-mono text-[11px] font-extrabold uppercase tracking-[0.18em] text-[var(--neon-lime)] mb-2.5">
               {post.category}
@@ -124,8 +124,8 @@ export function FieldNotes({ locale }: FieldNotesProps) {
               badge={post.postNumber}
             />
 
-            <div className="pt-2 px-2 space-y-3.5">
-              <blockquote className="text-left border-l-2 border-[var(--neon-lime)] pl-4 py-0.5 text-sm sm:text-[15px] font-bold text-[#0B0C0E] leading-relaxed">
+            <div className="sm:pt-2 sm:px-2 sm:space-y-3.5">
+              <blockquote className="text-left border-l-2 border-[var(--neon-lime)] pl-4 py-0.5 text-xs sm:text-[15px] font-bold text-[#0B0C0E] leading-relaxed">
                 “{post.highlightQuote}”
               </blockquote>
 
@@ -143,7 +143,7 @@ export function FieldNotes({ locale }: FieldNotesProps) {
           </div>
 
           <div className="order-3 lg:order-3 lg:col-span-5 flex flex-col items-center lg:items-start w-full">
-            <div className="w-full flex items-center sm:justify-start gap-7 sm:gap-5 pt-3 sm:pt-5 pb-5 sm:pb-6 border-t-2 sm:border-t border-[#E4E4E7] text-left">
+            <div className="w-full flex items-center sm:justify-start gap-7 sm:gap-5 pt-3 sm:pt-5 pb-5 sm:pb-6 border-t border-[#E4E4E7] text-left">
               <img
                 src="/images/profile/EvelynPascual_professionalphoto.jpg"
                 alt="Evelyn Pascual"
@@ -153,12 +153,12 @@ export function FieldNotes({ locale }: FieldNotesProps) {
                 <p className="font-mono text-xs font-extrabold uppercase tracking-[0.14em] text-[#0B0C0E]">
                   Evelyn Pascual
                 </p>
-                <p className="text-xs text-[#52525B] mt-0.5">
+                <p className="text-[10px] font-bold sm:text-xs text-[#8d8d8f] mt-0.5">
                   {locale === "en"
                     ? "Full-Stack Software Engineer"
                     : "Ingeniera de Software Full-Stack"}
                 </p>
-                <div className="mt-2.5 sm:mt-3.5 flex flex-wrap items-center gap-x-3.5 gap-y-1 font-mono text-[10px] sm:text-[10.5px] font-bold uppercase tracking-[0.12em] text-[#52525B]">
+                <div className="mt-2.5 sm:mt-3.5 flex flex-wrap items-center gap-x-3.5 gap-y-1 font-mono text-[9px] sm:text-[10.5px] font-bold uppercase tracking-[0.12em] text-[#52525B]">
                   <span className="inline-flex items-center gap-1.5">
                     <Calendar className="h-3.5 w-3.5 text-[var(--neon-lime)]" />
                     {post.date}
