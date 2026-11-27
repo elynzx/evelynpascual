@@ -130,7 +130,7 @@ portfolio-26/
 ## How navigation & media work
 
 ### Section navigation (`SmoothSectionScroll`)
-Desktop wheel events accumulate scroll intent (`DELTA_THRESHOLD = 240`) before smoothly interpolating (`easeInOutCubic`) to the next section, while automatically yielding control whenever a modal or slide-over drawer is open:
+Desktop wheel events accumulate scroll intent (`DELTA_THRESHOLD = 135`) before smoothly interpolating (`easeInOutCubic`) to the next section, while automatically yielding control whenever a modal or slide-over drawer is open:
 
 ```text
 [role="dialog"] open  →  Native drawer scroll (section snapping paused)

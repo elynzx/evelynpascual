@@ -11,7 +11,7 @@ const SECTION_SELECTORS = [
   "footer",
 ];
 
-const DELTA_THRESHOLD = 240;
+const DELTA_THRESHOLD = 135;
 
 function easeInOutCubic(t: number): number {
   return t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
@@ -95,7 +95,7 @@ export function SmoothSectionScroll() {
       if (resetTimerRef.current) clearTimeout(resetTimerRef.current);
       resetTimerRef.current = setTimeout(() => {
         accumulatedDeltaRef.current = 0;
-      }, 450);
+      }, 320);
 
       if (Math.abs(accumulatedDeltaRef.current) < DELTA_THRESHOLD) return;
 

@@ -214,21 +214,20 @@ export const STACK_LAYER_TAGS: Record<Locale, [string, string, string]> = {
     "INFRAESTRUCTURA Y FLUJO",
   ],
 };
-
 export const CONTACT_DIALOG_COPY: Record<Locale, ContactDialogCopy> = {
   en: {
     kicker: "DIRECT MESSAGE",
     title: "Let's start a conversation.",
     subtitle:
-      "Have a Full-Stack opportunity or project in mind? Drop a quick note below and your message will be ready to send.",
+      "Have a Full-Stack opportunity or project in mind? Drop a quick note below and I'll get back to you soon.",
     name: "01 YOUR NAME (OPTIONAL)",
     email: "02 YOUR EMAIL ADDRESS *",
     message: "03 MESSAGE *",
     submit: "SEND MESSAGE",
-    submitSub: "Opens your default mail client",
-    sentTitle: "Your email app is opening",
+    submitSub: "Direct delivery to my inbox",
+    sentTitle: "Message sent!",
     sentBody:
-      "Your note is pre-filled. Just press send there and it will reach me.",
+      "Thanks for reaching out. I've received your note and sent a confirmation copy to your email.",
     again: "Write another",
     trigger: "Message",
     cv: "Download CV",
@@ -241,15 +240,15 @@ export const CONTACT_DIALOG_COPY: Record<Locale, ContactDialogCopy> = {
     kicker: "MENSAJE DIRECTO",
     title: "Iniciemos una conversación.",
     subtitle:
-      "¿Tienes una oportunidad Full-Stack o proyecto en mente? Déjame un mensaje breve y quedará listo para enviar.",
+      "¿Tienes una oportunidad Full-Stack o proyecto en mente? Déjame un mensaje breve y te responderé pronto.",
     name: "01 TU NOMBRE (OPCIONAL)",
     email: "02 TU CORREO ELECTRÓNICO *",
     message: "03 MENSAJE *",
     submit: "ENVIAR MENSAJE",
-    submitSub: "Abre tu aplicación de correo",
-    sentTitle: "Se está abriendo tu correo",
+    submitSub: "Envío directo a mi bandeja",
+    sentTitle: "¡Mensaje enviado!",
     sentBody:
-      "Tu mensaje ya está listo. Solo presiona enviar allí y me llegará.",
+      "Gracias por escribirme. Ya recibí tu mensaje y te envié una copia de confirmación a tu correo.",
     again: "Escribir otro",
     trigger: "Mensaje",
     cv: "Descargar CV",

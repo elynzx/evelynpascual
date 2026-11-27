@@ -1,10 +1,10 @@
 "use client";
 
 import { useState } from "react";
+import emailjs from "@emailjs/browser";
 import { ArrowRight, X } from "lucide-react";
 import {
   CONTACT_DIALOG_COPY,
-  getContactEmail,
   type Locale,
 } from "@/data/dictionary";
 
@@ -20,22 +20,44 @@ const labelClass =
 
 export function ContactDialog({ locale, onClose }: ContactDialogProps) {
   const [sent, setSent] = useState(false);
+  const [isSending, setIsSending] = useState(false);
+  const [error, setError] = useState(false);
   const [form, setForm] = useState({ name: "", email: "", message: "" });
   const t = CONTACT_DIALOG_COPY[locale];
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    if (!form.email.trim() || !form.message.trim()) return;
+    if (!form.email.trim() || !form.message.trim() || isSending) return;
 
-    const body = `${form.message}\n\n${form.name ? `${form.name}\n` : ""}${form.email}`;
-    window.location.href = `mailto:${getContactEmail()}?subject=${encodeURIComponent(
-      t.subject,
-    )}&body=${encodeURIComponent(body)}`;
-    setSent(true);
+    setIsSending(true);
+    setError(false);
+
+    try {
+      await emailjs.send(
+        process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID!,
+        process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID!,
+        {
+          from_name: form.name.trim() || "Anonymous",
+          reply_to: form.email.trim(),
+          message: form.message.trim(),
+        },
+        {
+          publicKey: process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY!,
+        }
+      );
+
+      setSent(true);
+    } catch (err) {
+      console.error("EmailJS error:", err);
+      setError(true);
+    } finally {
+      setIsSending(false);
+    }
   };
 
   const resetForm = () => {
     setSent(false);
+    setError(false);
     setForm({ name: "", email: "", message: "" });
   };
 
@@ -107,6 +129,7 @@ export function ContactDialog({ locale, onClose }: ContactDialogProps) {
               <input
                 id="contact-name"
                 type="text"
+                disabled={isSending}
                 value={form.name}
                 onChange={(e) => setForm({ ...form, name: e.target.value })}
                 placeholder={t.namePh}
@@ -122,6 +145,7 @@ export function ContactDialog({ locale, onClose }: ContactDialogProps) {
                 id="contact-email"
                 type="email"
                 required
+                disabled={isSending}
                 value={form.email}
                 onChange={(e) => setForm({ ...form, email: e.target.value })}
                 placeholder={t.emailPh}
@@ -137,6 +161,7 @@ export function ContactDialog({ locale, onClose }: ContactDialogProps) {
                 id="contact-message"
                 required
                 rows={2}
+                disabled={isSending}
                 value={form.message}
                 onChange={(e) => setForm({ ...form, message: e.target.value })}
                 placeholder={t.messagePh}
@@ -144,9 +169,18 @@ export function ContactDialog({ locale, onClose }: ContactDialogProps) {
               />
             </div>
 
+            {error && (
+              <p className="text-[11px] font-medium text-red-600">
+                {locale === "es"
+                  ? "Error al enviar el mensaje. Inténtalo de nuevo."
+                  : "Failed to send message. Please try again."}
+              </p>
+            )}
+
             <button
               type="submit"
-              className="group relative w-full flex items-center justify-between border-b-2 border-[#0B0C0E] bg-white px-2 py-3 text-left hover:bg-[#F8F9FA] transition-colors cursor-pointer overflow-hidden"
+              disabled={isSending}
+              className="group relative w-full flex items-center justify-between border-b-2 border-[#0B0C0E] bg-white px-2 py-3 text-left hover:bg-[#F8F9FA] transition-colors cursor-pointer overflow-hidden disabled:opacity-50 disabled:cursor-not-allowed"
             >
               <span
                 aria-hidden="true"
@@ -155,7 +189,11 @@ export function ContactDialog({ locale, onClose }: ContactDialogProps) {
               />
               <div className="transition-transform duration-300 ease-out group-hover:translate-x-2">
                 <span className="block text-[11px] font-extrabold uppercase tracking-[0.16em] text-[#0B0C0E]">
-                  {t.submit}
+                  {isSending
+                    ? locale === "es"
+                      ? "ENVIANDO..."
+                      : "SENDING..."
+                    : t.submit}
                 </span>
                 <span className="block text-[11px] text-neutral-500 mt-0.5">
                   {t.submitSub}
