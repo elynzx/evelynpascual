@@ -84,6 +84,9 @@ export const metadata: Metadata = {
     description: SITE_DESCRIPTION,
     images: ["/images/profile/EvelynPascualProfilePhoto.png"],
   },
+  verification: {
+    google: "U0_z6Z5Py8xjXyD3udwIPVOfkYzyas4BFJG46bbkrIg",
+  },
 };
 
 function JsonLdSchema() {
